@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">仿QQ退出</string>
+    <string name="action_settings">设置</string>
+    <string name="hello_world">Hello</string>
+    <string name="exit">退出</string>
+    <string name="exit_app">你确定退出QQ?</string>
+    <string name="eixt_qq">退出QQ</string>
+    <string name="eixt_text">不提示QQ好友离线消息</string>
+    <string name="cancel">取消</string>
+    <string name="confirm">确定</string>
+
+</resources>

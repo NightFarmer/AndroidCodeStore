@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="44dp"
+   	android:background="@color/background"	
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:id="@+id/lay1"
+        style="@style/Linearlayout_Style"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/linearlayout01"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="1" >
+
+        <TextView
+            android:id="@+id/fratext1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="第一页"
+            android:textSize="16sp"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lay2"
+        style="@style/Linearlayout_Style"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/linearlayout01"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_weight="1" >
+
+        <TextView
+            android:id="@+id/fratext2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="第二页"
+            android:textSize="16sp"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lay3"
+        style="@style/Linearlayout_Style"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/linearlayout01"
+        android:layout_weight="1" >
+
+        <TextView
+            android:id="@+id/fratext3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="第三页"
+            android:textSize="16sp"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+</LinearLayout>
