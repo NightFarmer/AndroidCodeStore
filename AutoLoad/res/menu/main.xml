@@ -1,0 +1,26 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/action_settings"
+        android:showAsAction="always"
+        android:title="更多"
+        android:icon="@android:drawable/ic_menu_more">
+        <menu>
+            <item
+                android:id="@+id/action_test"
+                android:showAsAction="withText"
+                android:title="普通回弹"/>
+            
+            <item
+                android:id="@+id/action_list"
+                android:showAsAction="withText"
+                android:title="ListView不带刷新加载回弹"/>
+            
+            <item
+                android:id="@+id/action_refresh"
+                android:showAsAction="withText"
+                android:title="仿新浪头像下拉"/>
+        </menu>
+    </item>
+
+</menu>
