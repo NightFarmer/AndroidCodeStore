@@ -53,5 +53,12 @@ public class MainActivity extends Activity {
                 startActivity(intent);
             }
         });
+        findViewById(R.id.dragtest).setOnClickListener(new View.OnClickListener() {
+        	@Override
+        	public void onClick(View v) {
+        		Intent intent = new Intent(MainActivity.this, DragActivity2.class);
+        		startActivity(intent);
+        	}
+        });
     }
 }

@@ -23,6 +23,7 @@
         </activity>
         <activity android:name="com.flavienlaurent.vdh.DragActivity"></activity>
         <activity android:name="com.flavienlaurent.vdh.YoutubeActivity"></activity>
+        <activity android:name="com.flavienlaurent.vdh.DragActivity2"></activity>
     </application>
 
 </manifest>

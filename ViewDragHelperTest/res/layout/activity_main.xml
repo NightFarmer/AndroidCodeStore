@@ -39,4 +39,10 @@
             android:text="Youtube layout"
             android:id="@+id/buttonYoutube"
             />
+    <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="dragtest"
+            android:id="@+id/dragtest"
+            />
 </LinearLayout>
