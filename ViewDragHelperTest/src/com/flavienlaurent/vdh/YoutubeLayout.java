@@ -5,6 +5,7 @@ import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -182,7 +183,10 @@ public class YoutubeLayout extends ViewGroup {
 				final float dx = x - mInitialMotionX;
 				final float dy = y - mInitialMotionY;
 				final int slop = mDragHelper.getTouchSlop();
-				if (dx * dx + dy * dy < slop * slop && isHeaderViewUnder) {
+				Log.i("slop", dx*dx+" = "+dy*dy+" = "+slop*slop+" = "+String.valueOf(isHeaderViewUnder) );
+//				if (dx * dx + dy * dy < slop * slop && isHeaderViewUnder) {
+				if (dx * dx + dy * dy==0 && isHeaderViewUnder) {
+					Log.i("slop","Q");
 					if (mDragOffset == 0) {
 						smoothSlideTo(1f);
 					} else {
@@ -193,10 +197,17 @@ public class YoutubeLayout extends ViewGroup {
 			}
 		}
 
-		return isHeaderViewUnder && isViewHit(mHeaderView, (int) x, (int) y) || isViewHit(mDescView, (int) x, (int) y);
+		return isHeaderViewUnder && isViewHit(mHeaderView, (int) x, (int) y);// || isViewHit(mDescView, (int) x, (int) y);
 	}
 
 
+    /**
+     * 是否点击到右下角的小方块了，如果点击到了返回true，完结点击事件，否则返回FALSE，向下传递点击事件。
+     * @param view
+     * @param x
+     * @param y
+     * @return
+     */
     private boolean isViewHit(View view, int x, int y) {
         int[] viewLocation = new int[2];
         view.getLocationOnScreen(viewLocation);
