@@ -23,8 +23,15 @@ public class YoutubeLayout extends ViewGroup {
 	private float mInitialMotionX;
 	private float mInitialMotionY;
 
+	/**
+	 * 可拖拽的高度范围，屏幕高度减去头部高度
+	 */
 	private int mDragRange;
     private int mTop;
+    
+	/**
+	 * 拖拽的位置和最大拖拽范围的比例
+	 */
 	private float mDragOffset;
 
 
@@ -79,8 +86,9 @@ public class YoutubeLayout extends ViewGroup {
 
 			mDragOffset = (float) top / mDragRange;
 
-            mHeaderView.setPivotX(mHeaderView.getWidth());
-            mHeaderView.setPivotY(mHeaderView.getHeight());
+			mHeaderView.setPivotX(mHeaderView.getWidth());
+	        mHeaderView.setPivotY(mHeaderView.getHeight());
+            
             mHeaderView.setScaleX(1 - mDragOffset / 2);
             mHeaderView.setScaleY(1 - mDragOffset / 2);
 
@@ -113,6 +121,12 @@ public class YoutubeLayout extends ViewGroup {
 			return newTop;
 		}
 
+		@Override
+		public int clampViewPositionHorizontal(View child, int left, int dx) {
+			// TODO Auto-generated method stub
+			Log.i("lay", "xxx"+left);
+			return left;
+		}
 	}
 
 	@Override
@@ -124,43 +138,43 @@ public class YoutubeLayout extends ViewGroup {
 
 	@Override
 	public boolean onInterceptTouchEvent(MotionEvent ev) {
-		final int action = MotionEventCompat.getActionMasked(ev);
-
-		if (( action != MotionEvent.ACTION_DOWN)) {
-			mDragHelper.cancel();
-			return super.onInterceptTouchEvent(ev);
-		}
-
-		if (action == MotionEvent.ACTION_CANCEL || action == MotionEvent.ACTION_UP) {
-			mDragHelper.cancel();
-			return false;
-		}
-
-		final float x = ev.getX();
-		final float y = ev.getY();
-		boolean interceptTap = false;
-
-		switch (action) {
-			case MotionEvent.ACTION_DOWN: {
-				mInitialMotionX = x;
-				mInitialMotionY = y;
-                interceptTap = mDragHelper.isViewUnder(mHeaderView, (int) x, (int) y);
-				break;
-			}
-
-			case MotionEvent.ACTION_MOVE: {
-				final float adx = Math.abs(x - mInitialMotionX);
-				final float ady = Math.abs(y - mInitialMotionY);
-				final int slop = mDragHelper.getTouchSlop();
-                /*useless*/
-				if (ady > slop && adx > ady) {
-					mDragHelper.cancel();
-					return false;
-				}
-			}
-		}
-
-		return mDragHelper.shouldInterceptTouchEvent(ev) || interceptTap;
+//		final int action = MotionEventCompat.getActionMasked(ev);
+//
+//		if (( action != MotionEvent.ACTION_DOWN)) {
+//			mDragHelper.cancel();
+//			return super.onInterceptTouchEvent(ev);
+//		}
+//
+//		if (action == MotionEvent.ACTION_CANCEL || action == MotionEvent.ACTION_UP) {
+//			mDragHelper.cancel();
+//			return false;
+//		}
+//
+//		final float x = ev.getX();
+//		final float y = ev.getY();
+//		boolean interceptTap = false;
+//
+//		switch (action) {
+//			case MotionEvent.ACTION_DOWN: {
+//				mInitialMotionX = x;
+//				mInitialMotionY = y;
+//                interceptTap = mDragHelper.isViewUnder(mHeaderView, (int) x, (int) y);
+//				break;
+//			}
+//
+//			case MotionEvent.ACTION_MOVE: {
+//				final float adx = Math.abs(x - mInitialMotionX);
+//				final float ady = Math.abs(y - mInitialMotionY);
+//				final int slop = mDragHelper.getTouchSlop();
+//                /*useless*/
+//				if (ady > slop && adx > ady) {
+//					mDragHelper.cancel();
+//					return false;
+//				}
+//			}
+//		}
+//
+		return mDragHelper.shouldInterceptTouchEvent(ev) ;//|| interceptTap;
 	}
 
 	@Override
@@ -197,7 +211,7 @@ public class YoutubeLayout extends ViewGroup {
 			}
 		}
 
-		return isHeaderViewUnder && isViewHit(mHeaderView, (int) x, (int) y);// || isViewHit(mDescView, (int) x, (int) y);
+		return isHeaderViewUnder && isViewHit(mHeaderView, (int) x, (int) y) || isViewHit(mDescView, (int) x, (int) y);
 	}
 
 
@@ -211,6 +225,7 @@ public class YoutubeLayout extends ViewGroup {
     private boolean isViewHit(View view, int x, int y) {
         int[] viewLocation = new int[2];
         view.getLocationOnScreen(viewLocation);
+        Log.i("lay", String.valueOf(viewLocation[0])+"-"+String.valueOf(viewLocation[1])+"-"+view.getLeft()+"-"+view.getRight()+"-"+view.getTop()+"-"+view.getBottom());
         int[] parentLocation = new int[2];
         this.getLocationOnScreen(parentLocation);
         int screenX = parentLocation[0] + x;
@@ -233,7 +248,7 @@ public class YoutubeLayout extends ViewGroup {
     @Override
 	protected void onLayout(boolean changed, int l, int t, int r, int b) {
 		mDragRange = getHeight() - mHeaderView.getHeight();
-
+		
         mHeaderView.layout(
                 0,
                 mTop,
