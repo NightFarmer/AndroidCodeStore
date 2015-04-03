@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 
 /**
  * Created by Flavien Laurent (flavienlaurent.com) on 23/08/13.
@@ -60,5 +61,14 @@ public class MainActivity extends Activity {
         		startActivity(intent);
         	}
         });
+        findViewById(R.id.youbutetest).setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(MainActivity.this, YoutubeActivity2.class);
+				startActivity(intent);
+			}
+		});
     }
 }

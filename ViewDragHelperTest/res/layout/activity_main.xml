@@ -45,4 +45,10 @@
             android:text="dragtest"
             android:id="@+id/dragtest"
             />
+    <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="youbute_test"
+            android:id="@+id/youbutetest"
+            />
 </LinearLayout>

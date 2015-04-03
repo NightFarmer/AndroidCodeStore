@@ -28,6 +28,7 @@ public class YoutubeLayout extends ViewGroup {
 	 */
 	private int mDragRange;
     private int mTop;
+    private int mLeft;
     
 	/**
 	 * 拖拽的位置和最大拖拽范围的比例
@@ -83,6 +84,7 @@ public class YoutubeLayout extends ViewGroup {
         @Override
 		public void onViewPositionChanged(View changedView, int left, int top, int dx, int dy) {
 			mTop = top;
+			mLeft = left;
 
 			mDragOffset = (float) top / mDragRange;
 
