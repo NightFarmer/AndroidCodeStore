@@ -70,5 +70,14 @@ public class MainActivity extends Activity {
 				startActivity(intent);
 			}
 		});
+        findViewById(R.id.youbutetest3).setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(MainActivity.this, YoutubeActivity3.class);
+				startActivity(intent);
+			}
+		});
     }
 }

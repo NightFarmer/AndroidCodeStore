@@ -51,4 +51,10 @@
             android:text="youbute_test"
             android:id="@+id/youbutetest"
             />
+    <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="youbute_test3"
+            android:id="@+id/youbutetest3"
+            />
 </LinearLayout>

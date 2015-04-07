@@ -25,6 +25,7 @@
         <activity android:name="com.flavienlaurent.vdh.YoutubeActivity"></activity>
         <activity android:name="com.flavienlaurent.vdh.DragActivity2"></activity>
         <activity android:name="com.flavienlaurent.vdh.YoutubeActivity2"></activity>
+        <activity android:name="com.flavienlaurent.vdh.YoutubeActivity3"></activity>
     </application>
 
 </manifest>
