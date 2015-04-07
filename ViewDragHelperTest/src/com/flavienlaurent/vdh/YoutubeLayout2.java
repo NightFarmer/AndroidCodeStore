@@ -1,6 +1,7 @@
 package com.flavienlaurent.vdh;
 
 import android.content.Context;
+import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.ViewDragHelper;
 import android.support.v4.widget.ViewDragHelper.Callback;
 import android.util.AttributeSet;
@@ -18,6 +19,7 @@ public class YoutubeLayout2 extends ViewGroup{
 	private int mTop;
 	private int mLeft;
 	private int mDragRange;
+	private float mDragOffset;
 
 	public YoutubeLayout2(Context context) {
 		this(context, null);
@@ -51,6 +53,9 @@ public class YoutubeLayout2 extends ViewGroup{
                 resolveSizeAndState(maxHeight, heightMeasureSpec, 0));
 	}
 
+	/**
+	 * 手动重绘
+	 */
 	@Override
 	protected void onLayout(boolean changed, int l, int t, int r, int b) {
 		// TODO Auto-generated method stub
@@ -69,6 +74,13 @@ public class YoutubeLayout2 extends ViewGroup{
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		mDragHelper.processTouchEvent(event);
+		
+		if (mDragOffset == 0) {
+			smoothSlideTo(1f);
+		} else {
+			smoothSlideTo(0f);
+		}
+		
 		return true;
 	}
 	
@@ -76,10 +88,29 @@ public class YoutubeLayout2 extends ViewGroup{
 	public boolean onInterceptTouchEvent(MotionEvent ev) {
 		return mDragHelper.shouldInterceptTouchEvent(ev);
 	}
+	
+	// 单击和拖动的滚动都需要
+	@Override
+	public void computeScroll() {
+		if (mDragHelper.continueSettling(true)) {
+			ViewCompat.postInvalidateOnAnimation(this);
+		}
+	}
+	
+	boolean smoothSlideTo(float slideOffset) {
+        final int topBound = getPaddingTop();
+        int y = (int) (topBound + slideOffset * mDragRange);
+
+        if (mDragHelper.smoothSlideViewTo(header, header.getLeft(), y)) {
+            ViewCompat.postInvalidateOnAnimation(this);
+            return true;
+        }
+        return false;
+    }
+
 
 	private class DragHelperCallback extends Callback{
 
-		private float mDragOffset;
 
 		@Override
 		public boolean tryCaptureView(View arg0, int arg1) {
@@ -107,16 +138,33 @@ public class YoutubeLayout2 extends ViewGroup{
 			requestLayout();
 		}
 		
+		/**
+		 * 设置可垂直拖动，y坐标为拖动到的实际y坐标，
+		 */
 		@Override
 		public int clampViewPositionVertical(View child, int top, int dy) {
 			// TODO Auto-generated method stub
 			return top;
 		}
 		
+		/**
+		 * 设置可水平拖动，x坐标为拖动到的实际x坐标
+		 */
 		@Override
 		public int clampViewPositionHorizontal(View child, int left, int dx) {
 			// TODO Auto-generated method stub
-			return left;
+			return 0;
+		}
+		
+		@Override
+		public void onViewReleased(View releasedChild, float xvel, float yvel) {
+			int top = getPaddingTop();
+			//y方向有向下速度，或者速度为0且在屏幕下半部分
+			if (yvel > 0 || (yvel == 0 && mDragOffset > 0.5f)) {
+				top += mDragRange;
+			}
+			mDragHelper.settleCapturedViewAt(releasedChild.getLeft(), top);
+			invalidate();
 		}
 	}
 }
