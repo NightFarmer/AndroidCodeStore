@@ -222,9 +222,21 @@ public class DragLayout extends FrameLayout {
 		ViewHelper.setScaleX(vg_left, 0.5f + 0.5f * percent);
 		ViewHelper.setScaleY(vg_left, 0.5f + 0.5f * percent);
 		ViewHelper.setAlpha(vg_left, percent);
+
+//		//需要API level 11版本3.0以上
+//		vg_main.setScaleX(f1);
+//		vg_main.setScaleY(f1);
+//		vg_left.setTranslationX(-vg_left.getWidth() / 2.3f
+//				+ vg_left.getWidth() / 2.3f * percent);
+//		vg_left.setScaleX(0.5f + 0.5f * percent);
+//		vg_left.setScaleY(0.5f + 0.5f * percent);
+//		vg_left.setAlpha(percent);
+		
 		if (isShowShadow) {
 			ViewHelper.setScaleX(iv_shadow, f1 * 1.4f * (1 - percent * 0.12f));
 			ViewHelper.setScaleY(iv_shadow, f1 * 1.85f * (1 - percent * 0.12f));
+//			iv_shadow.setScaleX(f1 * 1.4f * (1 - percent * 0.12f));
+//			iv_shadow.setScaleY(f1 * 1.85f * (1 - percent * 0.12f));
 		}
 		getBackground().setColorFilter(
 				evaluate(percent, Color.BLACK, Color.TRANSPARENT),

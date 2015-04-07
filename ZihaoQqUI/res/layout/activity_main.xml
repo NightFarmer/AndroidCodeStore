@@ -18,7 +18,10 @@
         android:orientation="vertical" >
 
         <!-- headbanner -->
-
+		<Button 
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:text="xxxx"/>
         <include layout="@layout/middleview" />
     </com.zihao.ui.MyRelativeLayout>
 
