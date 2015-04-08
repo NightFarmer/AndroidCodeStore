@@ -13,6 +13,7 @@ public class YoutubeLayout3 extends FrameLayout{
 	private ViewDragHelper mDragHelper;
 	private View header;
 	private View desc;
+	
 //	private int headerLeft;
 	
 	/**
@@ -64,7 +65,6 @@ public class YoutubeLayout3 extends FrameLayout{
 	
 	private class DragHelperCallback extends ViewDragHelper.Callback{
 
-		private int leftMain;
 
 		@Override
 		public boolean tryCaptureView(View arg0, int arg1) {
@@ -82,7 +82,6 @@ public class YoutubeLayout3 extends FrameLayout{
 			
 			//设置缩放级别
 			
-			leftMain = left;
             float scaleM = 1 - MAINSCALERATE*left/header.getWidth();
 			header.setScaleX(scaleM);
             header.setScaleY(scaleM);
@@ -95,6 +94,9 @@ public class YoutubeLayout3 extends FrameLayout{
 			float scaleMenu = (1-MAINLOCATPERSONT/2)
 					+ (left + header.getWidth() * (1 - scaleM) / 2)
 					/ header.getWidth()/2;
+			/**
+			 * 负值为向左偏移，左菜单缩放级别为1时，偏移量为0，偏移量为菜单的宽度比例
+			 */
 			desc.setTranslationX(-(1-scaleMenu)*desc.getWidth());
 			desc.setScaleX(scaleMenu);
 			desc.setScaleY(scaleMenu);
