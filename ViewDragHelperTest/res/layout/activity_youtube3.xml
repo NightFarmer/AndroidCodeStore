@@ -1,45 +1,44 @@
-<FrameLayout
+<com.flavienlaurent.vdh.YoutubeLayout3 xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dragLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00ff00"
+    android:orientation="vertical" >
 
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    <TextView
+        android:id="@+id/desc"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#FF00FF"
+        android:gravity="center"
+        android:tag="desc"
+        android:text="Loreum Loreum Loreum Loreum Loreum Loreum LoreumLoreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum"
+        android:textColor="@android:color/white"
+        android:textSize="35sp" />
 
-    <ListView
-            android:id="@+id/listView"
+    <com.flavienlaurent.vdh.DragMainLayout 
+	    android:id="@+id/header"
+        android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:background="#AD78CC"
+	    android:orientation="vertical"
+        >
+        <Button 
+            android:id="@+id/testbt"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:tag="list"
-            />
+            android:layout_height="wrap_content"
+            android:text="xxxxxxxxxx"/>
+	    <TextView
+	        android:layout_below="@id/testbt"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:background="#AD78CC"
+	        android:fontFamily="sans-serif-thin"
+	        android:gravity="center"
+	        android:tag="text"
+	        android:text="Drag me to the bottom"
+	        android:textColor="@android:color/white"
+	        android:textSize="25sp" />
+    </com.flavienlaurent.vdh.DragMainLayout>
 
-    <com.flavienlaurent.vdh.YoutubeLayout3
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/dragLayout"
-            android:background="#00ff00"
-            android:orientation="vertical">
-
-        <TextView
-                android:id="@+id/desc"
-                android:tag="desc"
-                android:textSize="35sp"
-                android:gravity="center"
-                android:text="Loreum Loreum Loreum Loreum Loreum Loreum LoreumLoreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum"
-                android:textColor="@android:color/white"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#FF00FF"/>
-        <TextView
-                android:id="@+id/header"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="sans-serif-thin"
-                android:textSize="25sp"
-                android:text="Drag me to the bottom"
-                android:tag="text"
-                android:gravity="center"
-                android:textColor="@android:color/white"
-                android:background="#AD78CC"/>
-
-
-    </com.flavienlaurent.vdh.YoutubeLayout3>
-</FrameLayout>
+</com.flavienlaurent.vdh.YoutubeLayout3>
