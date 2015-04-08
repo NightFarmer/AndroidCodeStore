@@ -55,6 +55,8 @@ public class YoutubeLayout3 extends FrameLayout{
 	
 	private class DragHelperCallback extends ViewDragHelper.Callback{
 
+		private int leftMain;
+
 		@Override
 		public boolean tryCaptureView(View arg0, int arg1) {
 			// TODO Auto-generated method stub
@@ -66,18 +68,42 @@ public class YoutubeLayout3 extends FrameLayout{
 				int dx, int dy) {
 
 //			//设置view以哪个点为中心缩放
-			header.setPivotX(header.getWidth());
-			header.setPivotY(header.getHeight());
+//			header.setPivotX(header.getWidth());
+//			header.setPivotY(header.getHeight());
 			
 			//设置缩放级别
-			Log.i("ss", String.valueOf(1 - left/getWidth() / 2));
-//            header.setScaleX(1 - 1 / 2);
-//            header.setScaleY(1 - 1 / 2);
+			
+			leftMain = left;
+            float scaleM = 1 - 0.5f*left/header.getWidth();
+			header.setScaleX(scaleM);
+            header.setScaleY(scaleM);
+//            desc.setPivotX(0);
+//            desc.setPivotY(desc.getMeasuredHeight()/2f);
+            /**
+             * 计算出主界面缩放后left的真实坐标
+             * 使主界面的left位于屏幕0.7位置时，菜单缩放级别为1
+             */
+			float scaleMenu = 0.65f
+					+ (left + header.getWidth() * (1 - scaleM) / 2)
+					/ header.getWidth()/2;
+			desc.setTranslationX(-(1-scaleMenu)*desc.getWidth());
+			desc.setScaleX(scaleMenu);
+			desc.setScaleY(scaleMenu);
+            desc.layout(0, 0, desc.getMeasuredWidth(), desc.getMeasuredHeight());
 //            requestLayout();
 		}
 		
 		@Override
 		public int clampViewPositionHorizontal(View child, int left, int dx) {
+			float scaleM = 1 - 0.5f*left/header.getWidth();
+			float scaleMenu = 0.3f + 1f * left / header.getWidth()
+					+ header.getWidth() * (1 - scaleM) / 2 / header.getWidth();
+			if (scaleMenu>=1) {
+				return leftMain;
+			}
+			if (left<=0) {
+				return 0;
+			}
 			return left;
 		}
 		
