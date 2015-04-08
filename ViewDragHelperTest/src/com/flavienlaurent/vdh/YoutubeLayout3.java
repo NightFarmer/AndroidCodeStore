@@ -13,7 +13,16 @@ public class YoutubeLayout3 extends FrameLayout{
 	private ViewDragHelper mDragHelper;
 	private View header;
 	private View desc;
-	private int headerLeft;
+//	private int headerLeft;
+	
+	/**
+	 * 主界面缩放速率，0为不缩放，1为到屏幕右侧缩放到最小
+	 */
+	private final float MAINSCALERATE = 0.5f;
+	/**
+	 * 主界面移动比例，0.7为左边界能够移动到的最大屏幕比例
+	 */
+	private final float MAINLOCATPERSONT = 0.7f;
 
 	public YoutubeLayout3(Context context) {
 		this(context, null);
@@ -50,7 +59,7 @@ public class YoutubeLayout3 extends FrameLayout{
 	protected void onLayout(boolean changed, int left, int top, int right,
 			int bottom) {
 		super.onLayout(changed, left, top, right, bottom);
-		headerLeft = header.getLeft();
+//		headerLeft = header.getLeft();
 	}
 	
 	private class DragHelperCallback extends ViewDragHelper.Callback{
@@ -74,7 +83,7 @@ public class YoutubeLayout3 extends FrameLayout{
 			//设置缩放级别
 			
 			leftMain = left;
-            float scaleM = 1 - 0.5f*left/header.getWidth();
+            float scaleM = 1 - MAINSCALERATE*left/header.getWidth();
 			header.setScaleX(scaleM);
             header.setScaleY(scaleM);
 //            desc.setPivotX(0);
@@ -83,23 +92,28 @@ public class YoutubeLayout3 extends FrameLayout{
              * 计算出主界面缩放后left的真实坐标
              * 使主界面的left位于屏幕0.7位置时，菜单缩放级别为1
              */
-			float scaleMenu = 0.65f
+			float scaleMenu = (1-MAINLOCATPERSONT/2)
 					+ (left + header.getWidth() * (1 - scaleM) / 2)
 					/ header.getWidth()/2;
 			desc.setTranslationX(-(1-scaleMenu)*desc.getWidth());
 			desc.setScaleX(scaleMenu);
 			desc.setScaleY(scaleMenu);
-            desc.layout(0, 0, desc.getMeasuredWidth(), desc.getMeasuredHeight());
+//            desc.layout(0, 0, desc.getMeasuredWidth(), desc.getMeasuredHeight());
 //            requestLayout();
 		}
 		
 		@Override
 		public int clampViewPositionHorizontal(View child, int left, int dx) {
-			float scaleM = 1 - 0.5f*left/header.getWidth();
-			float scaleMenu = 0.3f + 1f * left / header.getWidth()
-					+ header.getWidth() * (1 - scaleM) / 2 / header.getWidth();
-			if (scaleMenu>=1) {
-				return leftMain;
+//			float scaleM = 1 - 0.5f*left/header.getWidth();
+//			float scaleMenu = 0.65f
+//					+ (left + header.getWidth() * (1 - scaleM) / 2)
+//					/ header.getWidth()/2;
+			//经计算得出右边界公式为 2*0.7*header.getWidth()/(2+0.5)
+			//经计算得出右边界公式为 2*MAINLOCATPERSONT*header.getWidth()/(2+MAINSCALERATE)
+//			double maxLeft = 2*0.7*header.getWidth()/(2+0.5);
+			double maxLeft = 0.56*header.getWidth();
+			if (left>maxLeft) {
+				return (int) (0.56*header.getWidth());
 			}
 			if (left<=0) {
 				return 0;
