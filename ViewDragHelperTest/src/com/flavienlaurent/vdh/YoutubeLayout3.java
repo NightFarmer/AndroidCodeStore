@@ -10,6 +10,7 @@ import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.nineoldandroids.view.ViewHelper;
@@ -18,7 +19,7 @@ public class YoutubeLayout3 extends FrameLayout{
 
 	private ViewDragHelper mDragHelper;
 	private DragMainLayout header;
-	private RelativeLayout desc;
+	private LinearLayout desc;
 	
 	private int maxLeft;
 //	private int headerLeft;
@@ -33,6 +34,7 @@ public class YoutubeLayout3 extends FrameLayout{
 	private final float MAINLOCATPERSONT = 0.7f;
 	private int x_down;
 	private int y_down;
+	private GestureDetectorCompat gestureDetector;
 
 	public YoutubeLayout3(Context context) {
 		this(context, null);
@@ -45,45 +47,56 @@ public class YoutubeLayout3 extends FrameLayout{
 	public YoutubeLayout3(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 		mDragHelper = ViewDragHelper.create(this, 1f, new DragHelperCallback());
+		gestureDetector = new GestureDetectorCompat(context,
+				new YScrollDetector());
+	}
+	
+	class YScrollDetector extends SimpleOnGestureListener {
+		@Override
+		public boolean onScroll(MotionEvent e1, MotionEvent e2, float dx,
+				float dy) {
+			return Math.abs(dy) <= Math.abs(dx);
+		}
 	}
 	
 	@Override
 	protected void onFinishInflate() {
 		header = (DragMainLayout) findViewById(R.id.header);
 //		desc = findViewById(R.id.desc);
-		desc = (RelativeLayout) getChildAt(0);
+		desc = (LinearLayout) getChildAt(0);
 		if (header!=null) {
 			header.setDragLayout(this);
 		}
-//		desc.setClickable(true);
+		desc.setClickable(true);
+		header.setClickable(true);
 	}
 	
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		// TODO Auto-generated method stub
 		mDragHelper.processTouchEvent(event);
-		if (event.getAction() == MotionEvent.ACTION_DOWN) {
-			x_down = (int) event.getX();
-			y_down = (int) event.getY();
-		}
-		if (event.getAction() == MotionEvent.ACTION_UP) {
-			int x = (int) event.getX();
-			int y = (int) event.getY();
-			if (Math.abs(x-x_down)==0 && Math.abs(y-y_down)==0) {
-				float mainLeft = header.getLeft()+(header.getWidth()/2)*(1-ViewHelper.getScaleX(header));
-				float mainTop = header.getHeight()/2*(1-ViewHelper.getScaleY(header));
-				float mainButtom = header.getHeight() - mainTop;
-				if (getState().equals(DragState.OPEN) && x>mainLeft && y>mainTop && y<mainButtom ) {
-					close();
-				}
-			}
-		}
-		return true;
+//		if (event.getAction() == MotionEvent.ACTION_DOWN) {
+//			x_down = (int) event.getX();
+//			y_down = (int) event.getY();
+//		}
+//		if (event.getAction() == MotionEvent.ACTION_UP) {
+//			int x = (int) event.getX();
+//			int y = (int) event.getY();
+//			if (Math.abs(x-x_down)==0 && Math.abs(y-y_down)==0) {
+//				float mainLeft = header.getLeft()+(header.getWidth()/2)*(1-ViewHelper.getScaleX(header));
+//				float mainTop = header.getHeight()/2*(1-ViewHelper.getScaleY(header));
+//				float mainButtom = header.getHeight() - mainTop;
+//				if (getState().equals(DragState.OPEN) && x>mainLeft && y>mainTop && y<mainButtom ) {
+//					close();
+//				}
+//			}
+//		}
+		return false;
 	}
 	
 	@Override
 	public boolean onInterceptTouchEvent(MotionEvent ev) {
-		return mDragHelper.shouldInterceptTouchEvent(ev);
+		return mDragHelper.shouldInterceptTouchEvent(ev)&& gestureDetector.onTouchEvent(ev);
 	}
 	
 	@Override
@@ -133,6 +146,11 @@ public class YoutubeLayout3 extends FrameLayout{
 			// TODO Auto-generated method stub
 //			return arg0.getId()==header.getId();
 			return true;
+		}
+		
+		@Override
+		public int getViewHorizontalDragRange(View child) {
+			return 100;
 		}
 		
 		@Override

@@ -2,7 +2,7 @@
     android:id="@+id/dragLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00ff00"
+    android:background="#555500"
     android:orientation="vertical" >
 
     <include layout="@layout/activity_leftmenu" />
@@ -15,12 +15,12 @@
 	    android:orientation="vertical"
         >
         <Button 
-            android:id="@+id/testbt"
+            android:id="@+id/drag_open"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="xxxxxxxxxx"/>
 	    <TextView
-	        android:layout_below="@id/testbt"
+	        android:layout_below="@id/drag_open"
 	        android:layout_width="match_parent"
 	        android:layout_height="match_parent"
 	        android:background="#AD78CC"
