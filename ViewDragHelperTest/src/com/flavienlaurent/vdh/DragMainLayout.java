@@ -11,6 +11,7 @@ import com.flavienlaurent.vdh.YoutubeLayout3.DragState;
 public class DragMainLayout extends RelativeLayout{
 
 	private YoutubeLayout3 dragLayout;
+	private int preAction;
 
 	public DragMainLayout(Context context) {
 		this(context, null);
@@ -45,7 +46,11 @@ public class DragMainLayout extends RelativeLayout{
 		DragState state = dragLayout.getState();
 		Log.i("qq", ""+state+"-"+event.getAction());
 		if (!DragState.CLOSE.equals(state)) {
-			if (event.getAction() == MotionEvent.ACTION_UP) {
+			if (event.getAction() != MotionEvent.ACTION_UP) {
+				preAction = event.getAction();
+			}
+			if (preAction == MotionEvent.ACTION_DOWN && event.getAction() == MotionEvent.ACTION_UP) {
+				preAction = MotionEvent.ACTION_UP;
 				dragLayout.close();
 			}
 			return true;

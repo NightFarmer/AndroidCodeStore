@@ -241,9 +241,21 @@ public class YoutubeLayout3 extends FrameLayout{
 		public void onViewReleased(View releasedChild, float xvel, float yvel) {
 			super.onViewReleased(releasedChild, xvel, yvel);
 			if (xvel > 0) {
+				//可跟进手势快慢过渡，但是不流畅
+//				if (releasedChild == header ) {
+//					mDragHelper.settleCapturedViewAt(maxLeft, 0);
+//					invalidate();
+//					return;
+//				}
 				open();
 			} else if (xvel < 0) {
-				close();
+//				if (releasedChild == desc ) {
+					close();
+//					return;
+//				}
+				//可跟进手势快慢过渡，但是不流畅
+//				mDragHelper.settleCapturedViewAt(0, 0);
+//				invalidate();
 			} else if (releasedChild == header && header.getLeft() > header.getWidth() * 0.45) {
 				open();
 			} else if (releasedChild == desc && header.getLeft() > header.getWidth() * 0.55) {
