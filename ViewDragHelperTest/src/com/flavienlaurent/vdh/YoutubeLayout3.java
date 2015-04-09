@@ -22,7 +22,7 @@ public class YoutubeLayout3 extends FrameLayout{
 	private LinearLayout desc;
 	
 	private int maxLeft;
-//	private int headerLeft;
+	public int headerLeft;
 	
 	/**
 	 * 主界面缩放速率，0为不缩放，1为到屏幕右侧缩放到最小
@@ -130,9 +130,9 @@ public class YoutubeLayout3 extends FrameLayout{
 	}
 	
 	public DragState getState() {
-		if (header.getLeft()==0) {
+		if (headerLeft==0) {
 			return DragState.CLOSE;
-		}else if (header.getLeft()==maxLeft) {
+		}else if (headerLeft==maxLeft) {
 			return DragState.OPEN;
 		}
 		return DragState.DRAG;
@@ -168,6 +168,8 @@ public class YoutubeLayout3 extends FrameLayout{
 			
 			//设置缩放级别
 			if (header.getId() == changedView.getId()) {
+				headerLeft=left;
+				Log.i("qq", ""+headerLeft);
 				float scaleM = 1 - MAINSCALERATE*left/header.getWidth();
 //			header.setScaleX(scaleM);
 //          header.setScaleY(scaleM);
@@ -240,6 +242,7 @@ public class YoutubeLayout3 extends FrameLayout{
 		@Override
 		public void onViewReleased(View releasedChild, float xvel, float yvel) {
 			super.onViewReleased(releasedChild, xvel, yvel);
+			Log.i("qq", "v="+xvel+"-"+yvel);
 			if (xvel > 0) {
 				//可跟进手势快慢过渡，但是不流畅
 //				if (releasedChild == header ) {

@@ -44,15 +44,24 @@ public class DragMainLayout extends RelativeLayout{
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		DragState state = dragLayout.getState();
-		Log.i("qq", ""+state+"-"+event.getAction());
+		Log.i("qq", ""+state+"-"+event.getAction()+"-"+dragLayout.headerLeft);
+		if (DragState.OPEN.equals(state)) {
+			if (event.getAction() != MotionEvent.ACTION_UP) {
+				preAction = event.getAction();
+			}else if(preAction != MotionEvent.ACTION_MOVE) {
+				dragLayout.close();
+			}
+			return true;
+		}
 		if (!DragState.CLOSE.equals(state)) {
 			if (event.getAction() != MotionEvent.ACTION_UP) {
 				preAction = event.getAction();
 			}
-			if (preAction == MotionEvent.ACTION_DOWN && event.getAction() == MotionEvent.ACTION_UP) {
-				preAction = MotionEvent.ACTION_UP;
+//			if(preAction != MotionEvent.ACTION_MOVE) {
+			if (event.getAction() == MotionEvent.ACTION_CANCEL || (event.getAction() == MotionEvent.ACTION_UP && preAction != MotionEvent.ACTION_MOVE)) {
 				dragLayout.close();
 			}
+//			}
 			return true;
 		}
 		return super.onTouchEvent(event);
