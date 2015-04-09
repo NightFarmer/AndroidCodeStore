@@ -1,23 +1,24 @@
 package com.flavienlaurent.vdh;
 
-import com.nineoldandroids.view.ViewHelper;
-
 import android.content.Context;
-import android.support.v4.view.MotionEventCompat;
+import android.support.v4.view.GestureDetectorCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
+
+import com.nineoldandroids.view.ViewHelper;
 
 public class YoutubeLayout3 extends FrameLayout{
 
 	private ViewDragHelper mDragHelper;
 	private DragMainLayout header;
-	private View desc;
+	private RelativeLayout desc;
 	
 	private int maxLeft;
 //	private int headerLeft;
@@ -49,9 +50,12 @@ public class YoutubeLayout3 extends FrameLayout{
 	@Override
 	protected void onFinishInflate() {
 		header = (DragMainLayout) findViewById(R.id.header);
-		desc = findViewById(R.id.desc);
-		header.setDragLayout(this);
-//		header.setClickable(true);
+//		desc = findViewById(R.id.desc);
+		desc = (RelativeLayout) getChildAt(0);
+		if (header!=null) {
+			header.setDragLayout(this);
+		}
+//		desc.setClickable(true);
 	}
 	
 	@Override
@@ -159,7 +163,8 @@ public class YoutubeLayout3 extends FrameLayout{
 				 * 负值为向左偏移，左菜单缩放级别为1时，偏移量为0，偏移量为菜单的宽度比例
 				 */
 //			desc.setTranslationX(-(1-scaleMenu)*desc.getWidth());
-				ViewHelper.setTranslationX(desc, -(1-scaleMenu)*desc.getWidth());
+//				ViewHelper.setTranslationX(desc, -(1-scaleMenu)*desc.getWidth());
+				desc.layout((int)(-(1-scaleMenu)*desc.getWidth()), 0, (int) (Math.ceil(-(1-scaleMenu)*getWidth()+getWidth())), desc.getHeight());
 //			desc.setScaleX(scaleMenu);
 //			desc.setScaleY(scaleMenu);
 				ViewHelper.setScaleX(desc, scaleMenu);
@@ -172,9 +177,10 @@ public class YoutubeLayout3 extends FrameLayout{
 				ViewHelper.setScaleX(desc, scaleMenu);
 				ViewHelper.setScaleY(desc, scaleMenu);
 				Log.i("py", left+ "="+scaleMenu);
-				float mainLeft = (scaleMenu - (1-MAINLOCATPERSONT/2))*2*header.getWidth()*header.getWidth()*2/(header.getWidth()*2 + header.getWidth() * MAINSCALERATE);
+				float mainLeft = (scaleMenu - (1-MAINLOCATPERSONT/2))*2*getWidth()*getWidth()*2/(getWidth()*2 + getWidth() * MAINSCALERATE);
 				Log.i("py", ""+mainLeft);
-				ViewHelper.setTranslationX(header, mainLeft);
+				header.layout((int)mainLeft, 0, (int) (mainLeft+getWidth()), getHeight());
+//				ViewHelper.setTranslationX(header, mainLeft);
 				float scaleM = 1 - MAINSCALERATE*mainLeft/header.getWidth();
 				ViewHelper.setScaleX(header, scaleM);
 				ViewHelper.setScaleY(header, scaleM);
@@ -200,7 +206,7 @@ public class YoutubeLayout3 extends FrameLayout{
 					return 0;
 				}
 			}else {
-				if (child.getRight()+dx>header.getWidth()) {
+				if (child.getRight()+dx>getWidth()) {
 					return 0;
 				}
 			}

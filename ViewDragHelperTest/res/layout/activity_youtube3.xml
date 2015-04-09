@@ -5,16 +5,7 @@
     android:background="#00ff00"
     android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/desc"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#FF00FF"
-        android:gravity="center"
-        android:tag="desc"
-        android:text="Loreum Loreum Loreum Loreum Loreum Loreum LoreumLoreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum"
-        android:textColor="@android:color/white"
-        android:textSize="35sp" />
+    <include layout="@layout/activity_leftmenu" />
 
     <com.flavienlaurent.vdh.DragMainLayout 
 	    android:id="@+id/header"
