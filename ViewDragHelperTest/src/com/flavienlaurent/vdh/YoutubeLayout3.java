@@ -23,15 +23,21 @@ public class YoutubeLayout3 extends FrameLayout{
 	
 	private int maxLeft;
 	public int headerLeft;
+	public int menuMineLeft;
 	
 	/**
 	 * 主界面缩放速率，0为不缩放，1为到屏幕右侧缩放到最小
 	 */
 	private final float MAINSCALERATE = 0.5f;
 	/**
-	 * 主界面移动比例，0.7为左边界能够移动到的最大屏幕比例
+	 * 主界面移动比例，0.7为左边界能够移动到的最大屏幕比例，根据主界面缩小后的可视左边界为参照物
 	 */
 	private final float MAINLOCATPERSONT = 0.7f;
+	/**
+	 * 根据上面两个参数计算出主界面能移动到上面最大比例时，位移和屏幕宽度的比值
+	 */
+	private final float PARAM;
+	
 	private int x_down;
 	private int y_down;
 	private GestureDetectorCompat gestureDetector;
@@ -46,6 +52,8 @@ public class YoutubeLayout3 extends FrameLayout{
 
 	public YoutubeLayout3(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
+		//经计算得出右边界公式为 2*MAINLOCATPERSONT*header.getWidth()/(2+MAINSCALERATE)
+		PARAM = 2*MAINLOCATPERSONT/(2+MAINSCALERATE);
 		mDragHelper = ViewDragHelper.create(this, 1f, new DragHelperCallback());
 		gestureDetector = new GestureDetectorCompat(context,
 				new YScrollDetector());
@@ -96,7 +104,7 @@ public class YoutubeLayout3 extends FrameLayout{
 //				}
 //			}
 //		}
-		return false;
+		return true;
 	}
 	
 	@Override
@@ -124,7 +132,7 @@ public class YoutubeLayout3 extends FrameLayout{
 	}
 	
 	public void open() {
-		if (mDragHelper.smoothSlideViewTo(header, maxLeft, 0)) {
+		if (mDragHelper.smoothSlideViewTo(header, (int) (PARAM*header.getWidth()), 0)) {
 			ViewCompat.postInvalidateOnAnimation(this);
 		}
 	}
@@ -150,12 +158,13 @@ public class YoutubeLayout3 extends FrameLayout{
 		public boolean tryCaptureView(View arg0, int arg1) {
 			// TODO Auto-generated method stub
 //			return arg0.getId()==header.getId();
+			Log.i("qq", "v4="+arg0.getId());
 			return true;
 		}
 		
 		@Override
 		public int getViewHorizontalDragRange(View child) {
-			return 100;
+			return 1;
 		}
 		
 		@Override
@@ -169,7 +178,6 @@ public class YoutubeLayout3 extends FrameLayout{
 			//设置缩放级别
 			if (header.getId() == changedView.getId()) {
 				headerLeft=left;
-				Log.i("qq", ""+headerLeft);
 				float scaleM = 1 - MAINSCALERATE*left/header.getWidth();
 //			header.setScaleX(scaleM);
 //          header.setScaleY(scaleM);
@@ -221,18 +229,25 @@ public class YoutubeLayout3 extends FrameLayout{
 			//经计算得出右边界公式为 2*0.7*header.getWidth()/(2+0.5)
 			//经计算得出右边界公式为 2*MAINLOCATPERSONT*header.getWidth()/(2+MAINSCALERATE)
 //			double maxLeft = 2*0.7*header.getWidth()/(2+0.5);
-			
+//			double maxLeft = 0.56*header.getWidth();
 			if (child.getId() == header.getId()) {
-				maxLeft = (int) (0.56*header.getWidth());
+				maxLeft = (int) (PARAM*header.getWidth());
+				if (child.getLeft()==0) {
+					float scaleMenu = (1-MAINLOCATPERSONT/2);
+					menuMineLeft = (int)(-(1-scaleMenu)*desc.getWidth());
+				}
 				if (left>maxLeft) {
-					return (int) (0.56*header.getWidth());
+					return (int) (PARAM*header.getWidth());
 				}
 				if (left<=0) {
 					return 0;
 				}
 			}else {
-				if (child.getRight()+dx>getWidth()) {
+				if (left>0) {
 					return 0;
+				}
+				if (left<menuMineLeft) {
+					return menuMineLeft;
 				}
 			}
 			return left;
@@ -259,9 +274,9 @@ public class YoutubeLayout3 extends FrameLayout{
 				//可跟进手势快慢过渡，但是不流畅
 //				mDragHelper.settleCapturedViewAt(0, 0);
 //				invalidate();
-			} else if (releasedChild == header && header.getLeft() > header.getWidth() * 0.45) {
+			} else if (releasedChild == header && header.getLeft() > header.getWidth() * 0.4) {
 				open();
-			} else if (releasedChild == desc && header.getLeft() > header.getWidth() * 0.55) {
+			} else if (releasedChild == desc && header.getLeft() > header.getWidth() * 0.4) {
 				open();
 			} else {
 				close();
