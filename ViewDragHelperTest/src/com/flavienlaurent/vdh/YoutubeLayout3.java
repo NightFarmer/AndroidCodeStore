@@ -74,7 +74,12 @@ public class YoutubeLayout3 extends FrameLayout{
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		// TODO Auto-generated method stub
-		mDragHelper.processTouchEvent(event);
+		try {
+			mDragHelper.processTouchEvent(event);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 //		if (event.getAction() == MotionEvent.ACTION_DOWN) {
 //			x_down = (int) event.getX();
 //			y_down = (int) event.getY();
