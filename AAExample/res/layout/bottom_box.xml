@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="70dp" 
+    android:background="#78ff77">
+    
+    <RelativeLayout
+        android:id="@+id/layBottomBar"
+	    android:layout_width="match_parent"
+	    android:layout_height="70dp" 
+	    android:background="@drawable/bgtitle">
+ 
+	    <ImageView 
+	        android:id="@+id/iv1"
+	        android:src="@drawable/bt"
+	        android:layout_width="40dp"
+	        android:layout_height="40dp"
+	        android:scaleType="fitXY"
+	        android:layout_centerVertical="true"
+	        android:layout_marginLeft="20dp"
+	        android:contentDescription="xxx"/>
+	    <TextView 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/tvTopTitle"
+	       	android:layout_centerVertical="true"
+	       	android:layout_marginLeft="10dp"
+	       	android:textColor="@color/white"
+	        android:layout_toRightOf="@id/iv1"/>
+	    
+	    <ImageView 
+	        android:id="@+id/iv2"
+	        android:src="@drawable/bt"
+	        android:layout_width="40dp"
+	        android:layout_height="40dp"
+	        android:scaleType="fitXY"
+	        android:layout_centerVertical="true"
+	        android:layout_alignParentRight="true"
+	        android:layout_marginRight="15dp"
+	        android:contentDescription="xxx2"/>
+    </RelativeLayout>
+    <LinearLayout 
+        android:id="@+id/layBottomListViewBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layBottomBar"
+        android:orientation="vertical"
+        >
+        <ListView 
+            android:id="@+id/lvSlideList"
+            style="@style/StyleListView"/>
+    </LinearLayout>
+    
+</RelativeLayout>

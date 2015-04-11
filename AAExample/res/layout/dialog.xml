@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+	<Button 
+	    android:id="@+id/bt_dlg"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:text="openDialog"/>
+	
+	<Button 
+	    android:id="@+id/bt_dlg2"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:text="dialgo2"/>
+	
+	<Button 
+	    android:id="@+id/bt_dlg3"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:text="dialgo3"/>
+</LinearLayout>
