@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/android_layout_bg" >
+
+    <LinearLayout
+        android:id="@+id/ll_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/android_layout_bg"
+            android:orientation="vertical" >
+
+            <LinearLayout style="@style/PersonalMainLayoutStyle" >
+
+                <RelativeLayout style="@style/PersonalTopStyle" >
+
+                    <ImageView
+                        android:id="@+id/personal_icon_01"
+                        style="@style/PersonalIconStyle"
+                        android:layout_width="36dp"
+                        android:layout_height="38dp"
+                        android:src="@drawable/ic_setting_account" />
+
+                    <TextView
+                        style="@style/PersonalTextStyle"
+                        android:layout_toRightOf="@id/personal_icon_01"
+                        android:text="个人信息" />
+
+                    <ImageView
+                        style="@style/PersonalRightIconStyle"
+                        android:src="@drawable/mail_arrow" />
+                </RelativeLayout>
+
+                <View style="@style/PersonalLine" />
+
+                <RelativeLayout style="@style/PersonalBottomStyle" >
+
+                    <ImageView
+                        android:id="@+id/personal_icon_03"
+                        style="@style/PersonalIconStyle"
+                        android:src="@drawable/ic_scan_qr_icon" />
+
+                    <TextView
+                        style="@style/PersonalTextStyle"
+                        android:layout_toRightOf="@id/personal_icon_03"
+                        android:text="二维码扫描" />
+
+                    <ImageView
+                        style="@style/PersonalRightIconStyle"
+                        android:src="@drawable/mail_arrow" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/PersonalMainLayoutStyle" >
+
+                <RelativeLayout style="@style/PersonalTopStyle" >
+
+                    <ImageView
+                        android:id="@+id/personal_icon_04"
+                        style="@style/PersonalIconStyle"
+                        android:src="@drawable/ic_setting_msg_notification" />
+
+                    <TextView
+                        style="@style/PersonalTextStyle"
+                        android:layout_toRightOf="@id/personal_icon_04"
+                        android:text="提醒设置" />
+
+                    <ImageView
+                        style="@style/PersonalRightIconStyle"
+                        android:src="@drawable/mail_arrow" />
+                </RelativeLayout>
+
+                <View style="@style/PersonalLine" />
+
+                <RelativeLayout style="@style/PersonalNormalStyle" >
+
+                    <ImageView
+                        android:id="@+id/personal_icon_05"
+                        style="@style/PersonalIconStyle"
+                        android:src="@drawable/ic_setting_chat_bkgnd" />
+
+                    <TextView
+                        style="@style/PersonalTextStyle"
+                        android:layout_toRightOf="@id/personal_icon_05"
+                        android:text="全局聊天设置" />
+
+                    <ImageView
+                        style="@style/PersonalRightIconStyle"
+                        android:src="@drawable/mail_arrow" />
+                </RelativeLayout>
+
+                <View style="@style/PersonalLine" />
+
+                <RelativeLayout style="@style/PersonalBottomStyle" >
+
+                    <ImageView
+                        android:id="@+id/personal_icon_06"
+                        style="@style/PersonalIconStyle"
+                        android:src="@drawable/ic_setting_privacy" />
+
+                    <TextView
+                        style="@style/PersonalTextStyle"
+                        android:layout_toRightOf="@id/personal_icon_06"
+                        android:text="隐私设置" />
+
+                    <ImageView
+                        style="@style/PersonalRightIconStyle"
+                        android:src="@drawable/mail_arrow" />
+                </RelativeLayout>
+
+                <View style="@style/PersonalLine" />
+
+                <RelativeLayout style="@style/PersonalBottomStyle" >
+
+                    <ImageView
+                        android:id="@+id/personal_icon_07"
+                        style="@style/PersonalIconStyle"
+                        android:src="@drawable/ic_setting_applock" />
+
+                    <TextView
+                        android:id="@+id/tv_key"
+                        style="@style/PersonalTextStyle"
+                        android:layout_toRightOf="@id/personal_icon_07"
+                        android:text="密码锁定" />
+
+                    <TextView
+                        style="@style/PersonalTextStyle1"
+                        android:layout_toRightOf="@id/personal_icon_07"
+                        android:text="未开启" />
+
+                    <ImageView
+                        style="@style/PersonalRightIconStyle"
+                        android:src="@drawable/mail_arrow" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/PersonalMainLayoutStyle" >
+
+                <RelativeLayout
+                    style="@style/PersonalCenterStyle"
+                    android:layout_marginBottom="10dp" >
+
+                    <ImageView
+                        android:id="@+id/personal_icon_12"
+                        style="@style/PersonalIconStyle"
+                        android:src="@drawable/ic_setting_feedback" />
+
+                    <TextView
+                        style="@style/PersonalTextStyle"
+                        android:layout_toRightOf="@id/personal_icon_12"
+                        android:text="意见反馈" />
+
+                    <ImageView
+                        style="@style/PersonalRightIconStyle"
+                        android:src="@drawable/mail_arrow" />
+                </RelativeLayout>
+
+                <View style="@style/PersonalLine" />
+
+                <RelativeLayout
+                    style="@style/PersonalCenterStyle"
+                    android:layout_marginBottom="10dp" >
+
+                    <ImageView
+                        android:id="@+id/personal_icon_12"
+                        style="@style/PersonalIconStyle"
+                        android:src="@drawable/ic_clean_cache" />
+
+                    <TextView
+                        style="@style/PersonalTextStyle"
+                        android:layout_toRightOf="@id/personal_icon_12"
+                        android:text="清除缓存" />
+
+                    <ImageView
+                        style="@style/PersonalRightIconStyle"
+                        android:src="@drawable/mail_arrow" />
+                </RelativeLayout>
+
+                <View style="@style/PersonalLine" />
+
+                <RelativeLayout
+                    style="@style/PersonalCenterStyle"
+                    android:layout_marginBottom="10dp" >
+
+                    <ImageView
+                        android:id="@+id/personal_icon_13"
+                        style="@style/PersonalIconStyle"
+                        android:src="@drawable/ic_setting_about" />
+
+                    <TextView
+                        style="@style/PersonalTextStyle"
+                        android:layout_toRightOf="@id/personal_icon_13"
+                        android:text="关于" />
+
+                    <ImageView
+                        style="@style/PersonalRightIconStyle"
+                        android:src="@drawable/mail_arrow" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/PersonalMainLayoutStyle" >
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_login_out"
+                    android:text="退出登录"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

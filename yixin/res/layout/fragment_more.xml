@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/android_layout_bg" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/android_layout_bg"
+            android:orientation="vertical" >
+
+            <LinearLayout style="@style/PersonalMainLayoutStyle" >
+
+                <RelativeLayout style="@style/PersonalTopStyle" >
+
+                    <ImageView
+                        android:id="@+id/personal_icon_01"
+                        style="@style/PersonalIconStyle"
+                        android:layout_width="36dp"
+                        android:layout_height="38dp"
+                        android:src="@drawable/useful_favorite_icon" />
+
+                    <TextView
+                        style="@style/PersonalTextStyle"
+                        android:layout_toRightOf="@id/personal_icon_01"
+                        android:text="我的收藏" />
+
+                    <ImageView
+                        style="@style/PersonalRightIconStyle"
+                        android:src="@drawable/mail_arrow" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/PersonalMainLayoutStyle" >
+
+                <RelativeLayout style="@style/PersonalTopStyle" >
+
+                    <ImageView
+                        android:id="@+id/personal_icon_04"
+                        style="@style/PersonalIconStyle"
+                        android:src="@drawable/useful_phone_message_icon" />
+
+                    <TextView
+                        style="@style/PersonalTextStyle"
+                        android:layout_toRightOf="@id/personal_icon_04"
+                        android:text="电话留言" />
+
+                    <ImageView
+                        style="@style/PersonalRightIconStyle"
+                        android:src="@drawable/mail_arrow" />
+                </RelativeLayout>
+
+                <View style="@style/PersonalLine" />
+
+                <RelativeLayout style="@style/PersonalNormalStyle" >
+
+                    <ImageView
+                        android:id="@+id/personal_icon_05"
+                        style="@style/PersonalIconStyle"
+                        android:src="@drawable/useful_free_message_icon" />
+
+                    <TextView
+                        style="@style/PersonalTextStyle"
+                        android:layout_toRightOf="@id/personal_icon_05"
+                        android:text="免费短信" />
+
+                    <ImageView
+                        style="@style/PersonalRightIconStyle"
+                        android:src="@drawable/mail_arrow" />
+                </RelativeLayout>
+
+                <View style="@style/PersonalLine" />
+
+                <RelativeLayout style="@style/PersonalBottomStyle" >
+
+                    <ImageView
+                        android:id="@+id/personal_icon_06"
+                        style="@style/PersonalIconStyle"
+                        android:src="@drawable/useful_sip_for_overseas_icon" />
+
+                    <TextView
+                        style="@style/PersonalTextStyle"
+                        android:layout_toRightOf="@id/personal_icon_06"
+                        android:text="国际漫游电话" />
+
+                    <ImageView
+                        style="@style/PersonalRightIconStyle"
+                        android:src="@drawable/mail_arrow" />
+                </RelativeLayout>
+
+                <View style="@style/PersonalLine" />
+
+                <RelativeLayout style="@style/PersonalBottomStyle" >
+
+                    <ImageView
+                        android:id="@+id/personal_icon_07"
+                        style="@style/PersonalIconStyle"
+                        android:src="@drawable/useful_congratulation_icon" />
+
+                    <TextView
+                        android:id="@+id/tv_key"
+                        style="@style/PersonalTextStyle"
+                        android:layout_toRightOf="@id/personal_icon_07"
+                        android:text="明星帮你来拜年" />
+
+                    <ImageView
+                        style="@style/PersonalRightIconStyle"
+                        android:src="@drawable/mail_arrow" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/PersonalMainLayoutStyle" >
+
+                <RelativeLayout style="@style/PersonalTopStyle" >
+
+                    <ImageView
+                        android:id="@+id/personal_icon_08"
+                        style="@style/PersonalIconStyle"
+                        android:layout_width="36dp"
+                        android:layout_height="38dp"
+                        android:src="@drawable/useful_plugin_mail_attach_txt" />
+
+                    <TextView
+                        style="@style/PersonalTextStyle"
+                        android:layout_toRightOf="@id/personal_icon_08"
+                        android:text="邮箱提醒" />
+
+                    <ImageView
+                        style="@style/PersonalRightIconStyle"
+                        android:src="@drawable/mail_arrow" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
