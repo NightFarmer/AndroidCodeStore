@@ -7,6 +7,8 @@ import android.content.DialogInterface.OnKeyListener;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager.LayoutParams;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -67,19 +69,22 @@ public class LoadingDialog {
         spaceshipImage.startAnimation(hyperspaceJumpAnimation);  
         tipTextView.setText(msg);// 设置加载信息  
   
+        loadingDialog.setCancelable(false);//(false);// 不可以用“返回键”取消,这样才能拦截到取消操作，根据需求判断是否关闭  
         loadingDialog.setOnKeyListener(new OnKeyListener() {
 			
 			@Override
 			public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
 				// TODO Auto-generated method stub
-				Toast.makeText(context, "qqqq", Toast.LENGTH_SHORT).show();
 				if (keyCode == KeyEvent.KEYCODE_BACK) {
+					Toast.makeText(context, "拦截到了对话框被取消，手动关闭", Toast.LENGTH_SHORT).show();
 					loadingDialog.cancel();
 				}
 				return false;
 			}
 		});
-        loadingDialog.setCancelable(false);//(false);// 不可以用“返回键”取消  
+        
+//        loadingDialog.setCanceledOnTouchOutside(true);//设置点击Dialog外部任意区域关闭Dialog
+        
         return loadingDialog;  
     }  
 }

@@ -14,6 +14,7 @@ public class DialogActivity extends Activity
     protected void onCreate(Bundle savedInstanceState)  
     {  
         super.onCreate(savedInstanceState);  
+        //setTheme(R.style.MyDialogStyle);//在Mainifest文件中注册，此处不行
         setContentView(R.layout.activity_main);  
         // 这里你可以进行一些等待时的操作，我这里用8秒后显示Toast代理等待操作  
         new Handler().postDelayed(new Runnable(){  

@@ -56,7 +56,7 @@ public class ActivityViewList extends ActivityBase{
 				showMsg("itemClickÊÂ¼þ´¥·¢");
 				Intent intent = new Intent();
 				intent.setClass(ActivityViewList.this, MyActivity1.class);
-				ActivityViewList.this.startActivity(intent);
+				ActivityViewList.this.startActivityForResult(intent, 110);
 			}
 		});
 	}
@@ -88,5 +88,10 @@ public class ActivityViewList extends ActivityBase{
 	protected void bindData() {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		showMsg(requestCode+"-"+resultCode);
 	}
 }
