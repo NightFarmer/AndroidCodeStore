@@ -14,12 +14,10 @@ bin/
 gen/
 *.tmp
 *.db
-*.classpath
+
 packages/apps/*/.classpath
 packages/apps/Settings/tests/.classpath
 packages/apps/Launcher2/lint.xml
 &1
 .svn/
 .goutputstream*
-project.properties
-.project
