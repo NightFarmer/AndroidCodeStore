@@ -3,6 +3,7 @@ package com.example.guideapp;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -107,7 +108,7 @@ public class SplashActicity extends Activity implements OnPageChangeListener{
 	}
 
 	private void gohome(){
-		SharedPreferences sharedPreferences = getSharedPreferences(MainActivity.SHAREDPREFERENCES_NAME, MODE_PRIVATE);
+		SharedPreferences sharedPreferences = getSharedPreferences(MainActivity.SHAREDPREFERENCES_NAME, Context.MODE_PRIVATE);
 		Editor editor = sharedPreferences.edit();
 		editor.putBoolean("isFirstIn", false);
 		editor.commit();
