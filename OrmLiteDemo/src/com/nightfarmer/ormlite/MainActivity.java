@@ -3,15 +3,19 @@ package com.nightfarmer.ormlite;
 import java.sql.SQLException;
 import java.util.List;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.TextView;
 
-import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.stmt.DeleteBuilder;
+import com.nightfarmer.ormlite.entity.Dept;
 import com.nightfarmer.ormlite.entity.User;
 import com.nightfarmer.ormlite.utile.DatabaseHelper;
 
@@ -27,9 +31,21 @@ public class MainActivity extends OrmLiteBaseActivity<DatabaseHelper> {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		mUserDAO = getHelper().getUserDataDao();
+//		mUserDAO = getHelper().getUserDataDao();
+		mUserDAO = getHelper().getDataDao(User.class);
 
 		mTextView = (TextView) findViewById(R.id.message);
+		
+		mTextView.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent();
+				intent.setClass(MainActivity.this, SecondActivity.class);
+				startActivity(intent);
+			}
+		});
 
 		deleteAll();
 		mTextView.append("\n#######Begin to Insert#########\n");
@@ -63,6 +79,12 @@ public class MainActivity extends OrmLiteBaseActivity<DatabaseHelper> {
 	private void insertTest() {
 		for (int i = 0; i < 5; i++) {
 			user = new User();
+			if (i==1) {
+				Dept dept = new Dept();
+				dept.setId(1);
+				dept.setName("yoyo");
+				user.setDept(dept);
+			}
 			user.setUsername("name" + i);
 			user.setPassword("test_pass " + i);
 			mUserDAO.createIfNotExists(user);
@@ -163,5 +185,19 @@ public class MainActivity extends OrmLiteBaseActivity<DatabaseHelper> {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	@Override
+	protected void onRestart() {
+		// TODO Auto-generated method stub
+		super.onRestart();
+		List<User> queryForEq = mUserDAO.queryForEq("username", "name1");
+		User u = queryForEq.get(0);
+		Dept dept = u.getDept();
+		dept.setName("xx");
+		update(u);
+//		Log.e("nightfarmer", "nightfarmer");
+//		RuntimeExceptionDao<Dept, Integer> dataDao = getHelper().getDataDao(Dept.class);
+//		dataDao.update(dept);
 	}
 }

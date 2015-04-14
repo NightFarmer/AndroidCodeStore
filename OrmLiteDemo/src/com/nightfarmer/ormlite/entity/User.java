@@ -26,6 +26,9 @@ public class User
     @DatabaseField(defaultValue = "")
     private String nickname ;
     
+    @DatabaseField(foreign=true, foreignAutoRefresh=true)
+    private Dept dept;
+    
     public User()
     {
         // ORMLite 需要一个无参构造
@@ -83,7 +86,15 @@ public class User
     }
 
   
-    @Override
+    public Dept getDept() {
+		return dept;
+	}
+
+	public void setDept(Dept dept) {
+		this.dept = dept;
+	}
+
+	@Override
     public String toString()
     {
         String text = "";
