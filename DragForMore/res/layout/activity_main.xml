@@ -18,7 +18,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#ffff00">
-            
+            <ListView 
+                android:id="@+id/mylistview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                
+            </ListView>
         </com.nightfarmer.dragformore.DragMainLayout>
     </com.nightfarmer.dragformore.DragForMoreLayout>
 
