@@ -29,8 +29,11 @@ public class DragForMoreLayout extends FrameLayout{
 	private LoadingTopLayout topLoading;
 	private Handler handler;
 	private boolean isFirst = true;
-	private boolean drageReleased = false; 
+	private boolean drageReleased = false;
+	private boolean scrollStop; 
 
+	private boolean needStopScroleToLoading = true;
+	
 	public DragForMoreLayout(Context context) {
 		this(context, null);
 	}
@@ -77,6 +80,7 @@ public class DragForMoreLayout extends FrameLayout{
 					public void run() {
 						if (topLoading.state==LoadingTopLayout.State.LOADED) {
 							close();
+							needStopScroleToLoading = false;
 						}
 					}
 				}, 1000);
@@ -108,7 +112,11 @@ public class DragForMoreLayout extends FrameLayout{
 	
 	@Override
 	public void computeScroll() {
-		if (dragHelper.continueSettling(true)) {
+		scrollStop = false;
+		if (needStopScroleToLoading && drageReleased && preTop<=loadingTopHeight) {
+			scrollStop = true;
+		}
+		if (!scrollStop && dragHelper.continueSettling(true)) {
 			ViewCompat.postInvalidateOnAnimation(this);
 		}
 	}
@@ -119,8 +127,9 @@ public class DragForMoreLayout extends FrameLayout{
 		if (State.NORMAL == state) {
 			top = 0;
 		}else {
-			top = loadingTopHeight;
+			top = loadingTopHeight/2;
 			topLoading.setStateToLoading();
+			needStopScroleToLoading = true;
 		}
 		if (dragHelper.smoothSlideViewTo(dragableView, 0, top)) {
 			ViewCompat.postInvalidateOnAnimation(this);
@@ -139,14 +148,20 @@ public class DragForMoreLayout extends FrameLayout{
 				int dx, int dy) {
 			super.onViewPositionChanged(changedView, left, top, dx, dy);
 			if (changedView==dragableView) {
-				if (top>loadingTopHeight && topLoading.state!=LoadingTopLayout.State.DOWN && !drageReleased) {
-					topLoading.setStateToDown();
-					if (((Dragable)dragableView).getState()==Dragable.State.LOADING) {
-						((Dragable)dragableView).cancle();
+				if (!drageReleased) {
+					if (top>loadingTopHeight && topLoading.state!=LoadingTopLayout.State.DOWN) {
+						topLoading.setStateToDown();
+						if (((Dragable)dragableView).getState()==Dragable.State.LOADING) {
+							((Dragable)dragableView).cancle();
+							needStopScroleToLoading = false;
+						}
+					}
+					if (top<loadingTopHeight && topLoading.state!=LoadingTopLayout.State.UP
+							&& topLoading.state!=LoadingTopLayout.State.LOADED) {
+						topLoading.setStateToUp();
 					}
 				}
-				if (top<loadingTopHeight && topLoading.state!=LoadingTopLayout.State.DOWN
-						&& topLoading.state!=LoadingTopLayout.State.LOADED && !drageReleased) {
+				if (0==top) {
 					topLoading.setStateToUp();
 				}
 				preTop = top;
@@ -173,6 +188,7 @@ public class DragForMoreLayout extends FrameLayout{
 			}
 			if (((Dragable)dragableView).getState()==Dragable.State.LOADING && preTop<loadingTopHeight) {
 				((Dragable)dragableView).cancle();
+				needStopScroleToLoading = false;
 			}
 			close();
 		}

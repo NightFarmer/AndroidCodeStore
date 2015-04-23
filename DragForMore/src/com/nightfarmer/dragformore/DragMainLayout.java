@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 
 public class DragMainLayout extends RelativeLayout implements Dragable{
-	private State state;
+	private State state = State.NORMAL;
 	private LoadedListener listener;
 
 	public DragMainLayout(Context context, AttributeSet attrs, int defStyleAttr) {
