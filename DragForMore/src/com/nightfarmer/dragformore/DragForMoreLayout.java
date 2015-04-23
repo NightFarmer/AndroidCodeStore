@@ -96,11 +96,14 @@ public class DragForMoreLayout extends FrameLayout{
 			isFirst=false;
 			return;
 		}
-		topLayout.layout(0, preTop-topLayout.getMeasuredHeight(), topLayout.getMeasuredWidth(), preTop);
+		//topLayout.layout(0, preTop-topLayout.getMeasuredHeight(), topLayout.getMeasuredWidth(), preTop);
 	}
 	
 	@Override
 	public boolean onInterceptTouchEvent(MotionEvent ev) {
+		// if (!((Dragable)dragableView).canDragDown()) {
+		// 	false;
+		// }
 		return dragHelper.shouldInterceptTouchEvent(ev);
 	}
 	
