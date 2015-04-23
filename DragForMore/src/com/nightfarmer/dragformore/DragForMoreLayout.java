@@ -153,7 +153,6 @@ public class DragForMoreLayout extends FrameLayout{
 						topLoading.setStateToDown();
 						if (((Dragable)dragableView).getState()==Dragable.State.LOADING) {
 							((Dragable)dragableView).cancle();
-							needStopScroleToLoading = false;
 						}
 					}
 					if (top<loadingTopHeight && topLoading.state!=LoadingTopLayout.State.UP
@@ -172,6 +171,7 @@ public class DragForMoreLayout extends FrameLayout{
 		@Override
 		public int clampViewPositionVertical(View child, int top, int dy) {
 			drageReleased = false;
+			needStopScroleToLoading = false;
 			float radio = (float) (2 + 3 * Math.tan(Math.PI / 2 / getMeasuredHeight()
 					* (preTop)));
 			int newTop = (int) (preTop + dy/radio);
@@ -188,7 +188,7 @@ public class DragForMoreLayout extends FrameLayout{
 			}
 			if (((Dragable)dragableView).getState()==Dragable.State.LOADING && preTop<loadingTopHeight) {
 				((Dragable)dragableView).cancle();
-				needStopScroleToLoading = false;
+//				needStopScroleToLoading = false;
 			}
 			close();
 		}
