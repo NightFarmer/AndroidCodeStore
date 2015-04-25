@@ -8,6 +8,8 @@ import java.util.Map;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import android.view.View;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
@@ -91,15 +93,23 @@ public class DragMainLayout extends RelativeLayout implements Dragable {
 
 	@Override
 	public boolean canDragDown() {
-		return true;
-	}
+		
+		ListAdapter adapter = listview.getAdapter();
+		if (null == adapter || adapter.isEmpty()) {
+            return true;
 
-	
-	@Override
-	public boolean onInterceptTouchEvent(MotionEvent ev) {
-		// TODO Auto-generated method stub
-//		return super.onInterceptTouchEvent(ev);
-//		return true;
+        } else {
+
+            if (listview.getFirstVisiblePosition() <= 1) {
+                final View firstVisibleChild = listview.getChildAt(0);
+                if (firstVisibleChild != null) {
+                    //第一项已经到头并且还在继续向下拉
+                    return firstVisibleChild.getTop() >=0;
+                }
+            }
+        }
+
+        return false;
 //		if (listview.getCount() == 0)
 //		{
 //			// 没有item的时候也可以下拉刷新
@@ -109,7 +119,9 @@ public class DragMainLayout extends RelativeLayout implements Dragable {
 //		{
 //			// 滑到ListView的顶部了
 //			return true;
-//		} else
-			return super.onInterceptTouchEvent(ev);
+//		}
+//		return false;
 	}
+
+	
 }

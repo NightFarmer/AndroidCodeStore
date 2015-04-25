@@ -1,18 +1,16 @@
 package com.nightfarmer.dragformore;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Handler;
+import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.nightfarmer.dragformore.Dragable.LoadedListener;
 import com.nightfarmer.dragformore.Dragable.State;
@@ -33,6 +31,11 @@ public class DragForMoreLayout extends FrameLayout{
 	private boolean scrollStop; 
 
 	private boolean needStopScroleToLoading = true;
+	private float initY;
+	private float currentY;
+	private float diffY;
+	
+	private boolean preIsPulled = false;
 	
 	public DragForMoreLayout(Context context) {
 		this(context, null);
@@ -54,7 +57,6 @@ public class DragForMoreLayout extends FrameLayout{
 	protected void onFinishInflate() {
 		LayoutInflater inflater = LayoutInflater.from(context);
 		topLayout = (RelativeLayout) inflater.inflate(R.layout.loading_top, null);
-//		topLayout = (RelativeLayout) getChildAt(0);
 		addView(topLayout, 0);
 		topLoading = (LoadingTopLayout) topLayout.getChildAt(0);
 		int w = View.MeasureSpec.makeMeasureSpec(0,View.MeasureSpec.UNSPECIFIED); 
@@ -96,22 +98,69 @@ public class DragForMoreLayout extends FrameLayout{
 			isFirst=false;
 			return;
 		}
-		//topLayout.layout(0, preTop-topLayout.getMeasuredHeight(), topLayout.getMeasuredWidth(), preTop);
 	}
 	
-	@Override
-	public boolean onInterceptTouchEvent(MotionEvent ev) {
-		// if (!((Dragable)dragableView).canDragDown()) {
-		// 	false;
-		// }
-		return dragHelper.shouldInterceptTouchEvent(ev);
-	}
 	
-	@Override
-	public boolean onTouchEvent(MotionEvent event) {
-		dragHelper.processTouchEvent(event);
-		return true;
-	}
+    @Override
+    //在diapatch中进行相应的事件的拦截
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        if(!((Dragable) dragableView).canDragDown()){
+        	preIsPulled = true;
+            return super.dispatchTouchEvent(event);
+        }
+        final int action = MotionEventCompat.getActionMasked(event);
+        //如果不在复位状态，果断拦截事件
+		if (preTop!=0) {
+			preIsPulled = true;
+			dragHelper.processTouchEvent(event);
+			return true;
+		}
+        switch (action){
+            case MotionEvent.ACTION_DOWN: {
+                initY=event.getRawY();
+                //传入初始值，否则，直接传入ACTION_MOVE，会导致NullPointError
+                dragHelper.processTouchEvent(event);
+                break;
+            }
+            //处理多指触控
+            case MotionEvent.ACTION_POINTER_DOWN: {
+                //传入初始值，否则，直接传入ACTION_MOVE，会导致NullPointError
+                dragHelper.processTouchEvent(event);
+                break;
+            }
+            case MotionEvent.ACTION_MOVE: {
+                currentY=event.getRawY();
+                diffY=currentY-initY;
+                //到顶部，并且是向下拉
+                if(((Dragable) dragableView).canDragDown() && diffY>0) {
+                    dragHelper.processTouchEvent(event);
+                    //发送cancel事件，防止listview响应之前的事件，出现点击操作。
+                    event.setAction(MotionEvent.ACTION_CANCEL);
+                    super.dispatchTouchEvent(event);
+                    return true;
+                }
+                if (preIsPulled && preTop==0 && diffY<0) {
+                	preIsPulled = false;
+                	event.setAction(MotionEvent.ACTION_DOWN);
+                    super.dispatchTouchEvent(event);
+                    return true;
+				}
+                break;
+            }
+            case MotionEvent.ACTION_UP: {
+                if(topLoading.state!=com.nightfarmer.dragformore.LoadingTopLayout.State.LOADED) {
+                    dragHelper.processTouchEvent(event);
+                }
+                break;
+            }
+            case MotionEvent.ACTION_CANCEL: {
+                break;
+            }
+            default:break;
+        }
+        return super.dispatchTouchEvent(event);
+    }
+    
 	
 	@Override
 	public void computeScroll() {
@@ -191,7 +240,6 @@ public class DragForMoreLayout extends FrameLayout{
 			}
 			if (((Dragable)dragableView).getState()==Dragable.State.LOADING && preTop<loadingTopHeight) {
 				((Dragable)dragableView).cancle();
-//				needStopScroleToLoading = false;
 			}
 			close();
 		}
