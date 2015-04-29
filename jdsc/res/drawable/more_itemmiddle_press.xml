@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_checked="true" android:drawable="@drawable/ic_more_item_middle_pressed" />
+    <!-- <item android:state_checked="true" android:drawable="@drawable/ic_more_item_middle_pressed" />
     <item android:state_pressed="true" android:drawable="@drawable/ic_more_item_middle_pressed" />
-    <item android:drawable="@drawable/ic_more_item_middle_default" />
+    <item android:drawable="@drawable/ic_more_item_middle_default" /> -->
+    <item android:state_pressed="false">
+        <shape >
+            <solid android:color="#FCFCFC"/>
+            <stroke android:width="1dp" android:color="#D7D7D7"/>
+        </shape>
+    </item>
 </selector>

@@ -67,8 +67,106 @@
 
             <LinearLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content" 
+                android:orientation="vertical"
+                >
+                <LinearLayout 
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/my_border_top1">
+                </LinearLayout>
+                 <LinearLayout 
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/my_border_midle1">
+                </LinearLayout>
+                 <LinearLayout 
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/my_border_bottom"
+                    android:clickable="true">
+                </LinearLayout>
+				<RelativeLayout
+	                android:layout_width="fill_parent"
+	                android:layout_height="50dp" 
+	                android:background="@drawable/more_item_press"
+	                android:clickable="true"
+	                >
+	                <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="fill_parent"
+                            android:drawableLeft="@drawable/mylike"
+                            android:drawablePadding="10.0dip"
+                            android:gravity="center_vertical"
+                            android:includeFontPadding="false"
+                            android:paddingLeft="17.0dip"
+                            android:text="我的京东"
+                            android:textColor="#ff333333"
+                            android:textSize="16.0sp" />
 
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="fill_parent"
+                            android:layout_alignParentRight="true"
+                            android:gravity="center_vertical"
+                            android:paddingRight="20.0dip"
+                            android:src="@drawable/ic_arrow" />
+	            </RelativeLayout>
+	            <RelativeLayout
+	                android:layout_width="fill_parent"
+	                android:layout_height="50dp" 
+	                android:background="@drawable/more_itemtop_press"
+	                android:clickable="true"
+	                >
+	                <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="fill_parent"
+                            android:drawableLeft="@drawable/mylike"
+                            android:drawablePadding="10.0dip"
+                            android:gravity="center_vertical"
+                            android:includeFontPadding="false"
+                            android:paddingLeft="17.0dip"
+                            android:text="我的京东"
+                            android:textColor="#ff333333"
+                            android:textSize="16.0sp" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="fill_parent"
+                            android:layout_alignParentRight="true"
+                            android:gravity="center_vertical"
+                            android:paddingRight="20.0dip"
+                            android:src="@drawable/ic_arrow" />
+	            </RelativeLayout>
+	            <RelativeLayout
+	                android:layout_width="fill_parent"
+	                android:layout_height="50dp" 
+	                android:background="@drawable/more_itemmiddle_press"
+	                android:clickable="true"
+	                >
+	                <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="fill_parent"
+                            android:drawableLeft="@drawable/mylike"
+                            android:drawablePadding="10.0dip"
+                            android:gravity="center_vertical"
+                            android:includeFontPadding="false"
+                            android:paddingLeft="17.0dip"
+                            android:text="我的京东"
+                            android:textColor="#ff333333"
+                            android:textSize="16.0sp" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="fill_parent"
+                            android:layout_alignParentRight="true"
+                            android:gravity="center_vertical"
+                            android:paddingRight="20.0dip"
+                            android:src="@drawable/ic_arrow" />
+	            </RelativeLayout>
                 <TableLayout
                     android:id="@+id/MorePageTableLayout_Favorite"
                     android:layout_width="fill_parent"
@@ -83,7 +181,9 @@
                         android:layout_marginRight="2.0dip"
                         android:background="@drawable/more_item_press"
                         android:paddingBottom="16.0dip"
-                        android:paddingTop="8.0dip" >
+                        android:paddingTop="8.0dip" 
+                        android:clickable="true"
+                        >
 
                         <TextView
                             android:layout_width="wrap_content"
