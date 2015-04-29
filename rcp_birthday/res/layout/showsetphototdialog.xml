@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/customDialog"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RadioGroup
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#fffAf0"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/rb_setPhoto1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#0f000000"
+            android:button="@null"
+            android:drawableTop="@drawable/add_dialog_camera"
+            android:gravity="center"
+            android:padding="30dip"
+            android:text="拍照"
+            android:textColor="#ff7f50" />
+
+        <RadioButton
+            android:id="@+id/rb_setPhoto2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#0f000000"
+            android:button="@null"
+            android:drawableTop="@drawable/add_dialog_photo"
+            android:gravity="center"
+            android:paddingTop="30dip"
+            android:paddingBottom="30dip"
+            android:layout_gravity="center"
+            android:text="相册"
+            android:textColor="#ff7f50" />
+
+        <RadioButton
+          
+            android:id="@+id/rb_setPhoto3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#0f000000"
+            android:button="@null"
+            android:drawableTop="@drawable/add_dialog_resphoto"
+            android:gravity="center"
+            android:padding="30dip"
+            android:text="推荐"
+            android:textColor="#ff7f50" />
+
+    </RadioGroup>
+
+</RelativeLayout>

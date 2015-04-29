@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/newbg" >
+
+    <LinearLayout
+        android:id="@+id/layout_mycenter"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/toolbar_up" >
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="个人中心"
+                android:textColor="#ffffff"
+                android:textSize="20dip" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/mycenterbg"
+            android:orientation="vertical" >
+
+            <FrameLayout
+                android:id="@+id/frameLayout1"
+                android:layout_width="75.0dip"
+                android:layout_height="75.0dip"
+                android:layout_marginLeft="14.0dip"
+                android:layout_marginTop="14.0dip" >
+
+                <ImageView
+                    android:id="@+id/avatar"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:scaleType="centerCrop" />
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@drawable/mask_large"
+                    android:scaleType="centerCrop" />
+            </FrameLayout>
+
+            <ImageView
+                android:id="@+id/line"
+                android:layout_width="fill_parent"
+                android:layout_height="1.5dip"
+                android:layout_alignTop="@id/frameLayout1"
+                android:layout_marginTop="17.0dip"
+                android:layout_toRightOf="@id/frameLayout1"
+                android:background="#ffe7d9cd" />
+
+            <RelativeLayout
+                android:id="@+id/linearLayout1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/frameLayout1"
+                android:layout_alignTop="@+id/frameLayout1"
+                android:layout_marginLeft="10.0dip"
+                android:layout_toRightOf="@+id/frameLayout1" >
+
+                <TextView
+                    android:id="@+id/backup_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="我"
+                    android:textColor="@color/dark"
+                    android:textSize="20.0dip" />
+
+                <Button
+                    android:id="@+id/btn_modify"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10.0dip"
+                    android:background="@drawable/btn_mycenter_selector"
+                    android:text="修改信息"
+                    android:textColor="@color/huangTuSe"
+                    android:textSize="10.0dip" />
+
+                <Button
+                    android:id="@+id/btn_modifydengl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/btn_modify"
+                    android:background="@drawable/btn_mycenter_selector"
+                    android:text="登录"
+                    android:textColor="@color/huangTuSe"
+                    android:textSize="10.0dip" />
+
+                <ImageView
+                    android:id="@+id/mobile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/backup_name"
+                    android:layout_marginRight="10dip"
+                    android:layout_toLeftOf="@+id/btn_modifydengl"
+                    android:background="@drawable/mobile" />
+
+                <ImageView
+                    android:id="@+id/gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/mobile"
+                    android:layout_marginRight="20dip"
+                    android:layout_toLeftOf="@+id/mobile"
+                    android:background="@drawable/girl" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/linearLayout1"
+                android:layout_below="@id/frameLayout1"
+                android:layout_marginRight="14.0dip"
+                android:layout_marginTop="22.0dip"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="bottom"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="登录名:"
+                        android:textColor="#ff3a3a3a" />
+
+                    <TextView
+                        android:id="@+id/email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8.0dip"
+                        android:text="登录之后才能备份"
+                        android:textColor="@color/huangTuSe"
+                        android:textSize="12.0dip" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.8000001dip"
+                    android:layout_marginTop="5.0dip"
+                    android:background="#ffe7d9cd" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8.0dip"
+                    android:gravity="bottom"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="生　日:"
+                        android:textColor="#ff3a3a3a" />
+
+                    <TextView
+                        android:id="@+id/backup_birthday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8.0dip"
+                        android:text="0月0日"
+                        android:textColor="@color/huangTuSe"
+                        android:textSize="12.0dip" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.8000001dip"
+                    android:layout_marginTop="5.0dip"
+                    android:background="#ffe7d9cd" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8.0dip"
+                    android:gravity="bottom"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="手　机:"
+                        android:textColor="#ff3a3a3a" />
+
+                    <TextView
+                        android:id="@+id/phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8.0dip"
+                        android:text="13477822345"
+                        android:textColor="@color/huangTuSe"
+                        android:textSize="12.0dip"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/btn_set_phonenumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8.0dip"
+                        android:background="@drawable/btn_mycenter_selector"
+                        android:text="立即绑定"
+                        android:textColor="@color/huangTuSe"
+                        android:textSize="10.0dip" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.8000001dip"
+                    android:layout_marginTop="5.0dip"
+                    android:background="#ffe7d9cd" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/linearLayout2"
+                android:layout_below="@+id/linearLayout2"
+                android:layout_marginTop="14.0dip"
+                android:src="@drawable/letter" />
+
+            <ImageView
+                android:id="@+id/warn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/linearLayout2"
+                android:layout_marginBottom="8.0dip"
+                android:layout_toLeftOf="@id/linearLayout1"
+                android:src="@drawable/warn" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="40dip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="5.0dip" >
+
+                <Button
+                    android:id="@+id/show_mybirthday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_birthday_selector" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5.0dip"
+                    android:text="我的生日"
+                    android:textColor="@color/huangTuSe" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_backup_center"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <Button
+                        android:id="@+id/backupcenter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10.0dip"
+                        android:background="@drawable/btn_backup_selector" />
+
+                    <TextView
+                        android:id="@+id/hint_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:background="@drawable/badge_ifaux"
+                        android:gravity="center"
+                        android:text="12"
+                        android:textColor="#ffffffff" />
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5.0dip"
+                    android:text="备份中心"
+                    android:textColor="@color/huangTuSe" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="5.0dip" >
+
+                <Button
+                    android:id="@+id/show_lucky"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_lucky_selector" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5.0dip"
+                    android:text="今日运势"
+                    android:textColor="@color/huangTuSe" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

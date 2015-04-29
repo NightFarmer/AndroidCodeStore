@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_item"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/new_list_bg"
+    android:descendantFocusability="blocksDescendants" >
+
+    <FrameLayout
+        android:id="@+id/avatar_layout"
+        android:layout_width="55.0dip"
+        android:layout_height="55.0dip"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="12.0dip" >
+
+        <ImageView
+            android:id="@+id/mainbirthday_avatar"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:layout_margin="3.0dip"
+            android:background="@drawable/defaultgirl"
+            android:scaleType="fitXY" />
+
+        <ImageView
+            android:id="@+id/main_mask"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/mask" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/mainbirthday_name"
+        android:layout_width="110.0dip"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/avatar_layout"
+        android:layout_marginLeft="10.0dip"
+        android:layout_marginTop="3.0dip"
+        android:layout_toRightOf="@id/avatar_layout"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+        android:text="王小宝王小"
+        android:textColor="@color/dark"
+        android:textSize="18.0sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/mainbirthday_countdown_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@id/avatar_layout"
+        android:layout_marginRight="15.0dip"
+        android:layout_marginTop="3.0dip"
+        android:text="距离1岁公历生日"
+        android:textColor="@color/ash"
+        android:textSize="12.0sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/avatar_layout"
+        android:layout_alignLeft="@id/mainbirthday_name"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/mainbirthday_candle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/solar_icon" />
+
+        <TextView
+            android:id="@+id/mainbirthday_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5.0dip"
+            android:text="9月15日"
+            android:textColor="@color/ash"
+            android:textSize="14.0sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/cake"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/avatar_layout"
+        android:layout_alignRight="@id/mainbirthday_countdown_year"
+        android:layout_marginRight="15.0dip"
+        android:background="@drawable/cake"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/mainbirthday_countdown_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/avatar_layout"
+        android:layout_marginRight="5.0dip"
+        android:layout_marginTop="20.0dip"
+        android:layout_toLeftOf="@+id/mainbirthday_day"
+        android:singleLine="true"
+        android:text="128"
+        android:textColor="#fff94627"
+        android:textSize="28.0sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/mainbirthday_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/avatar_layout"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="5.0dip"
+        android:layout_marginRight="20.0dip"
+        android:text="天"
+        android:textColor="#fff94627"
+        android:textSize="12.0sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/badge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mainbirthday_countdown_year"
+        android:layout_marginRight="2.0dip"
+        android:layout_toRightOf="@id/mainbirthday_countdown_day"
+        android:background="@drawable/special"
+        android:visibility="gone" />
+
+    <ImageButton
+        android:id="@+id/btn_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/top_button4"
+        android:padding="9dip"
+        android:visibility="gone" />
+
+</RelativeLayout>

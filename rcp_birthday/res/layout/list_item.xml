@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="fill_parent"
+        android:layout_height="30dip"
+        android:background="#8fffffff"
+        android:paddingLeft="5dip"
+        android:text="你好"
+        android:textColor="#000000"
+        android:textSize="25dip" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/dianhua_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@drawable/default_icon" />
+
+        <TextView
+            android:id="@+id/dianhua_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip"
+            android:layout_toRightOf="@+id/dianhua_photo"
+            android:paddingLeft="10dip"
+            android:text="你好"
+            android:textColor="#000000"
+            android:textSize="16dip" />
+
+        <TextView
+            android:id="@+id/dianhua_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dianhua_name"
+            android:layout_marginTop="5dip"
+            android:layout_toRightOf="@+id/dianhua_photo"
+            android:paddingLeft="10dip"
+            android:text="你好"
+            android:textColor="#000000"
+            android:textSize="20dip" />
+    </RelativeLayout>
+
+</LinearLayout>

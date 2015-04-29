@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/add_birthday_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@drawable/newbg" >
+
+    <RelativeLayout
+        android:id="@+id/kkkk"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/toolbar_up" >
+
+        <Button
+            android:id="@+id/backup_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dip"
+            android:background="@drawable/taber_bark" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="备份中心"
+            android:textColor="#ffffff"
+            android:textSize="20dip" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/kkkkk"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/backuptime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/framelayout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10.0dip"
+            android:hint="上次备份时间：2分钟前"
+            android:textColor="@color/ash"
+            android:textSize="20.0dip" />
+
+        <ToggleButton
+            android:id="@+id/autobackup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/backuptime"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10.0dip"
+            android:background="@drawable/btn_toggle"
+            android:disabledAlpha="?android:disabledAlpha"
+            android:textOff="@null"
+            android:textOn="@null" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30.0dip"
+            android:layout_below="@id/backuptime"
+            android:layout_marginRight="5.0dip"
+            android:layout_marginTop="10.0dip"
+            android:layout_toLeftOf="@id/autobackup"
+            android:gravity="center_vertical"
+            android:text="自动备份："
+            android:textColor="@color/huangTuSe"
+            android:textSize="16.0sp" />
+
+        <TextView
+            android:id="@+id/autobackuptip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/autobackup"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15.0dip"
+            android:text="定期自动备份记录到服务器"
+            android:textColor="@color/huangTuSe" />
+
+        <Button
+            android:id="@+id/backup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/autobackuptip"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20.0dip"
+            android:background="@drawable/backup_bg" />
+
+        <Button
+            android:id="@+id/recover"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/backup"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10.0dip"
+            android:background="@drawable/recover_bg" />
+
+        <Button
+            android:id="@+id/viewcloud"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/recover"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10.0dip"
+            android:background="@drawable/supervice_bg" />
+    </RelativeLayout>
+
+</LinearLayout>

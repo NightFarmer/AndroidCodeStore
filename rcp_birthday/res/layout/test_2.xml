@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/tabhost"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/newbg" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/toolbar_up" >
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="短信祝福"
+                android:textColor="#ffffff"
+                android:textSize="20dip" />
+        </RelativeLayout>
+
+        <include layout="@layout/smstab" />
+
+        <TabWidget
+            android:id="@android:id/tabs"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" >
+        </TabWidget>
+
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="5dip"
+            android:layout_weight="1" >
+
+            <include
+                android:id="@+id/sms_1"
+                layout="@layout/sms_1" />
+
+            <include
+                android:id="@+id/sms_2"
+                layout="@layout/sms_1" />
+
+            <include
+                android:id="@+id/sms_3"
+                layout="@layout/sms_1" />
+
+            <include
+                android:id="@+id/sms_4"
+                layout="@layout/sms_1" />
+        </FrameLayout>
+    </LinearLayout>
+
+</TabHost>

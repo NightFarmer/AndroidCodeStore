@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    
+    android:gravity="bottom" >
+
+    <LinearLayout
+       
+        android:id="@+id/timePicker1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:paddingTop="10dp" >
+
+        <src.com.rcp.wheelview.WheelView
+            android:id="@+id/year"
+            android:layout_width="120dip"
+            android:layout_height="wrap_content" />
+
+        <src.com.rcp.wheelview.WheelView
+            android:id="@+id/month"
+            android:layout_width="70dip"
+            android:layout_height="wrap_content" />
+
+        <src.com.rcp.wheelview.WheelView
+            android:id="@+id/day"
+            android:layout_width="70dip"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/timePicker1"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="12dp" >
+
+        <Button
+            android:id="@+id/btn_datetime_sure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/timePicker1"
+            android:background="@drawable/add_brith_baocun"
+            android:text="确定" >
+        </Button>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <RadioGroup
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/tab_item_1"
+            style="@style/radioButtonStyle"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/tab_bg"
+            android:drawableTop="@drawable/tab_birth"
+            android:text="生日" />
+
+        <RadioButton
+            android:id="@+id/tab_item_2"
+            style="@style/radioButtonStyle"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/tab_bg"
+            android:drawableTop="@drawable/tab_sms"
+            android:text="短信祝福" />
+
+        <RadioButton
+            android:id="@+id/tab_item_3"
+            style="@style/radioButtonStyle"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/tab_bg"
+            android:drawableTop="@drawable/tab_center"
+            android:text="个人中心" />
+
+        <RadioButton
+            android:id="@+id/tab_item_4"
+            style="@style/radioButtonStyle"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/tab_bg"
+            android:drawableTop="@drawable/tab_more"
+            android:text="更多" />
+    </RadioGroup>
+
+</LinearLayout>

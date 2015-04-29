@@ -1,0 +1,641 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/birth_info_bg"
+    android:orientation="vertical"
+    android:paddingRight="10.0dip" >
+
+    <RelativeLayout
+        android:id="@+id/baike_jishu_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dip" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="0.70000005dip"
+            android:background="@drawable/birth_info_banner"
+            android:gravity="center"
+            android:text="生日计数"
+            android:textColor="@color/huangTuSe" />
+
+        <ImageView
+            android:id="@+id/baike_share_birth_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/brownshare" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/baike_jishu"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dip"
+        android:gravity="left"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:gravity="right"
+            android:text="按年记："
+            android:textColor="@color/dark" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:gravity="right"
+            android:text="按月记："
+            android:textColor="@color/dark" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:gravity="right"
+            android:text="按天记："
+            android:textColor="@color/dark" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/baike_jishu"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dip"
+        android:gravity="left"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/baike_birth_count_year"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:gravity="bottom|right|center"
+            android:text="0"
+            android:textColor="#fff94627"
+            android:textSize="24.0dip" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="2.0dip"
+            android:text="年"
+            android:textColor="#fff94627"
+            android:textSize="11.0dip" />
+
+        <TextView
+            android:id="@+id/baike_birth_count_month"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:gravity="right"
+            android:text="11"
+            android:textColor="#fff94627"
+            android:textSize="24.0dip" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="2.0dip"
+            android:text="月"
+            android:textColor="#fff94627"
+            android:textSize="11.0dip" />
+
+        <TextView
+            android:id="@+id/baike_birth_info_day"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:gravity="right"
+            android:text="365000"
+            android:textColor="#fff94627"
+            android:textSize="24.0dip" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="2.0dip"
+            android:text="天"
+            android:textColor="#fff94627"
+            android:textSize="11.0dip" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dip" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="0.70000005dip"
+            android:background="@drawable/birth_info_banner"
+            android:gravity="center"
+            android:text="概述"
+            android:textColor="@color/huangTuSe" />
+
+        <ImageView
+            android:id="@+id/baike_share_gaishu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/brownshare" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/baike_gaishu_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dip"
+        android:gravity="center"
+        android:paddingLeft="18.0dip"
+        android:text="10月6日享乐专家"
+        android:textColor="@color/dark"
+        android:textSize="18.0dip"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/baike_gaishu_content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dip"
+        android:lineSpacingExtra="2.0dip"
+        android:paddingLeft="18.0dip"
+        android:text="概述的内容"
+        android:textColor="@color/ash"
+        android:textSize="11.0dip" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dip" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="0.70000005dip"
+            android:background="@drawable/birth_info_banner"
+            android:gravity="center"
+            android:text="生肖"
+            android:textColor="@color/huangTuSe" />
+
+        <ImageView
+            android:id="@+id/baike_share_shengxiao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/brownshare" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/baike_shengxiao_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dip"
+        android:gravity="center"
+        android:paddingLeft="18.0dip"
+        android:text="兔"
+        android:textColor="@color/dark"
+        android:textSize="18.0dip" />
+
+    <TextView
+        android:id="@+id/baike_shengxiao_content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dip"
+        android:lineSpacingExtra="2.0dip"
+        android:paddingLeft="18.0dip"
+        android:text="生肖内容"
+        android:textColor="@color/ash"
+        android:textSize="11.0dip" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dip" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="0.70000005dip"
+            android:background="@drawable/birth_info_banner"
+            android:gravity="center"
+            android:text="星座"
+            android:textColor="@color/huangTuSe" />
+
+        <ImageView
+            android:id="@+id/baike_share_xingzuo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/brownshare" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/baike_xingzuo_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dip"
+        android:gravity="center"
+        android:paddingLeft="18.0dip"
+        android:text="天枰座"
+        android:textColor="@color/dark"
+        android:textSize="18.0dip" />
+
+    <TextView
+        android:id="@+id/baike_xingzuo_content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dip"
+        android:lineSpacingExtra="2.0dip"
+        android:paddingLeft="18.0dip"
+        android:text="星座内容"
+        android:textColor="@color/ash"
+        android:textSize="11.0dip" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dip" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="0.70000005dip"
+            android:background="@drawable/birth_info_banner"
+            android:gravity="center"
+            android:text="生日颜色"
+            android:textColor="@color/huangTuSe" />
+
+        <ImageView
+            android:id="@+id/baike_share_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/brownshare" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/baike_color_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dip"
+        android:gravity="center"
+        android:paddingLeft="18.0dip"
+        android:text="深蓝色"
+        android:textColor="@color/dark"
+        android:textSize="18.0dip" />
+
+    <TextView
+        android:id="@+id/baike_color_content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dip"
+        android:lineSpacingExtra="2.0dip"
+        android:paddingLeft="18.0dip"
+        android:text="颜色内容"
+        android:textColor="@color/ash"
+        android:textSize="11.0dip" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dip" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="0.70000005dip"
+            android:background="@drawable/birth_info_banner"
+            android:gravity="center"
+            android:text="生日花语"
+            android:textColor="@color/huangTuSe" />
+
+        <ImageView
+            android:id="@+id/baike_share_huayu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/brownshare" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/baike_huayu_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dip"
+        android:gravity="center"
+        android:paddingLeft="18.0dip"
+        android:text="10月6日榛"
+        android:textColor="@color/dark"
+        android:textSize="18.0dip" />
+
+    <TextView
+        android:id="@+id/baike_huayu_content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dip"
+        android:lineSpacingExtra="2.0dip"
+        android:paddingLeft="18.0dip"
+        android:text="花语："
+        android:textColor="@color/ash"
+        android:textSize="11.0dip" />
+
+    <TextView
+        android:id="@+id/baike_huazhenyan_content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dip"
+        android:lineSpacingExtra="2.0dip"
+        android:paddingLeft="18.0dip"
+        android:text="花箴言："
+        android:textColor="@color/ash"
+        android:textSize="11.0dip" />
+
+    <TextView
+        android:id="@+id/baike_huazhanbu_content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dip"
+        android:lineSpacingExtra="2.0dip"
+        android:paddingLeft="18.0dip"
+        android:text="花占卜："
+        android:textColor="@color/ash"
+        android:textSize="11.0dip" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dip" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="0.70000005dip"
+            android:background="@+drawable/birth_info_banner"
+            android:gravity="center"
+            android:text="生日塔罗"
+            android:textColor="@color/huangTuSe" />
+
+        <ImageView
+            android:id="@+id/baike_share_taluo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/brownshare" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/baike_taluo_content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dip"
+        android:paddingLeft="18.0dip"
+        android:text="10月6日榛"
+        android:textColor="@color/ash"
+        android:textSize="11.0dip" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dip" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="0.70000005dip"
+            android:background="@drawable/birth_info_banner"
+            android:gravity="center"
+            android:text="健康"
+            android:textColor="@color/huangTuSe" />
+
+        <ImageView
+            android:id="@+id/baike_share_health"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/brownshare" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/baike_health_content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dip"
+        android:lineSpacingExtra="2.0dip"
+        android:paddingLeft="18.0dip"
+        android:text="健康内容"
+        android:textColor="@color/ash"
+        android:textSize="11.0dip" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dip" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="0.70000005dip"
+            android:background="@drawable/birth_info_banner"
+            android:gravity="center"
+            android:text="建议"
+            android:textColor="@color/huangTuSe" />
+
+        <ImageView
+            android:id="@+id/baike_share_advise"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/brownshare" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/baike_advise_content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dip"
+        android:lineSpacingExtra="2.0dip"
+        android:paddingLeft="18.0dip"
+        android:text="建议内容"
+        android:textColor="@color/ash"
+        android:textSize="11.0dip" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dip" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="0.70000005dip"
+            android:background="@drawable/birth_info_banner"
+            android:gravity="center"
+            android:text="优缺点"
+            android:textColor="@color/huangTuSe" />
+
+        <ImageView
+            android:id="@+id/baike_share_youquedian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/brownshare" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/baike_youdian_content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dip"
+        android:lineSpacingExtra="2.0dip"
+        android:paddingLeft="18.0dip"
+        android:text="优点："
+        android:textColor="@color/ash"
+        android:textSize="11.0dip" />
+
+    <TextView
+        android:id="@+id/baike_quedian_content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dip"
+        android:lineSpacingExtra="2.0dip"
+        android:paddingLeft="18.0dip"
+        android:text="缺点："
+        android:textColor="@color/ash"
+        android:textSize="11.0dip" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dip" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="0.70000005dip"
+            android:background="@drawable/birth_info_banner"
+            android:gravity="center"
+            android:text="幸运数字"
+            android:textColor="@color/huangTuSe" />
+
+        <ImageView
+            android:id="@+id/baike_share_lucknum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/brownshare" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/baike_lucknum_content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dip"
+        android:lineSpacingExtra="2.0dip"
+        android:paddingLeft="18.0dip"
+        android:text="幸运数字内容"
+        android:textColor="@color/ash"
+        android:textSize="11.0dip" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dip" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="0.70000005dip"
+            android:background="@drawable/birth_info_banner"
+            android:gravity="center"
+            android:text="静思语"
+            android:textColor="@color/huangTuSe" />
+
+        <ImageView
+            android:id="@+id/baike_share_jingsiyu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/brownshare" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/baike_jingsiyu_content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dip"
+        android:lineSpacingExtra="2.0dip"
+        android:paddingLeft="18.0dip"
+        android:text="静思语内容"
+        android:textColor="@color/ash"
+        android:textSize="11.0dip" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dip" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="0.70000005dip"
+            android:background="@drawable/birth_info_banner"
+            android:gravity="center"
+            android:text="名人"
+            android:textColor="@color/huangTuSe" />
+
+        <ImageView
+            android:id="@+id/baike_share_mingren"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/brownshare" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/baike_mingren_content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dip"
+        android:lineSpacingExtra="2.0dip"
+        android:paddingLeft="18.0dip"
+        android:text="名人内容"
+        android:textColor="@color/ash"
+        android:textSize="11.0dip" />
+
+</LinearLayout>

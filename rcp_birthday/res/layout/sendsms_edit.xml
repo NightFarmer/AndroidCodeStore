@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/newbg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/toolbar_up" >
+
+        <Button
+            android:id="@+id/show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dip"
+            android:background="@drawable/taber_bark" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="短信祝福"
+            android:textColor="#ffffff"
+            android:textSize="20dip" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/add_bg"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40.0dip"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="10.0dip"
+            android:layout_marginTop="20.0dip"
+            android:background="@drawable/sendsms"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10.0dip"
+                android:text="联系人 "
+                android:textColor="@color/TextRed"
+                android:textSize="16.0sp" />
+
+            <View
+                android:layout_width="1.0dip"
+                android:layout_height="fill_parent"
+                android:layout_marginRight="5.0dip"
+                android:background="@drawable/redline" />
+
+            <EditText
+                android:id="@+id/tv_phone_number"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="请输入手机号码"
+                android:numeric="integer"
+                android:textColor="@color/dark"
+                android:textColorHint="@color/hintColor"
+                android:textSize="16.0sp" />
+
+            <Button
+                android:id="@+id/importcontactphone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15.0dip"
+                android:background="@drawable/lianxiren" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="10.0dip"
+            android:layout_marginTop="10.0dip"
+            android:background="@drawable/sendsms"
+            android:padding="10.0dip" >
+
+            <EditText
+                android:id="@+id/smscontent"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:gravity="left"
+                android:minHeight="100.0dip"
+                android:padding="5.0dip"
+                android:text="生日快乐~~"
+                android:textColor="@color/black"
+                android:textSize="16.0dip" />
+
+            <Button
+                android:id="@+id/btn_tosms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/smscontent"
+                android:layout_below="@+id/smscontent"
+                android:layout_marginTop="5.0dip"
+                android:background="@drawable/favorite_bg_off"
+                android:text="精选祝福短信"
+                android:textColor="@color/red"
+                android:textSize="12.0dip" />
+
+            <Button
+                android:id="@+id/btn_favos11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/smscontent"
+                android:layout_marginLeft="5.0dip"
+                android:layout_marginTop="5.0dip"
+                android:layout_toRightOf="@+id/btn_tosms"
+                android:background="@drawable/favorite_bg_off"
+                android:text="收藏夹"
+                android:textColor="@color/red"
+                android:textSize="12.0dip" />
+
+            <TextView
+                android:id="@+id/wordCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/smscontent"
+                android:layout_below="@+id/smscontent"
+                android:layout_marginTop="5.0dip"
+                android:text="63 (1)"
+                android:textColor="@color/dark"
+                android:textSize="13.0sp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40.0dip"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="10.0dip"
+            android:layout_marginTop="15.0dip"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/sendsms_content"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10.0dip"
+                android:layout_weight="1.0"
+                android:gravity="left|center"
+                android:text="定时发送短信："
+                android:textColor="@color/TextRed"
+                android:textSize="16.0sp" />
+
+            <ToggleButton
+                android:id="@+id/timingToggle"
+                android:layout_width="wrap_content"
+                android:layout_height="30.0dip"
+                android:layout_gravity="right|center"
+                android:background="@drawable/btn_toggle"
+                android:disabledAlpha="?android:disabledAlpha"
+                android:textOff="@null"
+                android:textOn="@null" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/timing_setting_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="10.0dip"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/line" />
+
+            <LinearLayout
+                android:id="@+id/sendDate"
+                android:layout_width="fill_parent"
+                android:layout_height="40.0dip"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.0dip"
+                    android:text="发送日期："
+                    android:textColor="@color/TextRed"
+                    android:textSize="16.0sp" />
+
+                <TextView
+                    android:id="@+id/tv_day"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="5.0dip"
+                    android:layout_marginRight="35.0dip"
+                    android:layout_weight="1.0"
+                    android:gravity="left|center"
+                    android:text="生日当天"
+                    android:clickable="true"
+                    android:textColor="@color/dark"
+                    android:textSize="14.0sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10.0dip"
+                    android:background="@drawable/edit" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/line" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40.0dip"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.0dip"
+                    android:text="发送时间："
+                    android:textColor="@color/TextRed"
+                    android:textSize="16.0sp" />
+
+                <TextView
+                    android:id="@+id/tv_time"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="5.0dip"
+                    android:layout_marginRight="35.0dip"
+                    android:layout_weight="1.0"
+                    android:gravity="left|center"
+                    android:clickable="true"
+                    android:text="00:00"
+                    android:textColor="@color/dark"
+                    android:textSize="14.0sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10.0dip"
+                    android:background="@drawable/edit" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bgedge" />
+
+    <Button
+        android:id="@+id/btn_action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10.0dip"
+        android:layout_marginTop="30.0dip"
+        android:background="@drawable/add_savebtn"
+        android:text="立即发送"
+        android:textColor="@color/white"
+        android:textSize="20.0dip"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/notice"
+        android:layout_width="wrap_content"
+        android:layout_height="30.0dip"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10.0dip"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/huangTuSe"
+        android:textSize="11.0sp"
+        android:visibility="gone" />
+
+</LinearLayout>

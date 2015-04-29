@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent" android:layout_height="wrap_content"
+	android:background="@drawable/sms_top" android:orientation="horizontal">
+
+	<RadioGroup android:id="@+id/sms_rg" android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:layout_gravity="bottom"
+		android:orientation="horizontal">
+
+		<RadioButton android:id="@+id/sms_btn1"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_marginBottom="5dip" android:layout_marginLeft="10dip"
+			android:layout_weight="1" android:background="#0f000000"
+			android:button="@null" android:text="亲朋好友" android:textColor="@drawable/tab_text_color" />
+
+		<RadioButton android:id="@+id/sms_btn2"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_marginBottom="5dip" android:layout_weight="1"
+			android:background="#0f000000" android:button="@null" android:text="语言文字"
+			android:textColor="@drawable/tab_text_color" />
+
+		<RadioButton android:id="@+id/sms_btn3"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_marginBottom="5dip" android:layout_weight="1"
+			android:background="#0f000000" android:button="@null" android:text="风格类型"
+			android:textColor="@drawable/tab_text_color" />
+
+		<RadioButton android:id="@+id/sms_btn4"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_marginBottom="5dip" android:layout_weight="1"
+			android:background="#0f000000" android:button="@null" android:text="节日祝福"
+			android:textColor="@drawable/tab_text_color" />
+	</RadioGroup>
+
+</LinearLayout>

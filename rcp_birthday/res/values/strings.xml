@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string name="hello">Hello World, Rcp_birthdayActivity!</string>
+	<string name="app_name">Rcp_birthday</string>
+	<string name="fail">登录失败！</string>
+	<string name="back">取消登陆</string>
+
+</resources>

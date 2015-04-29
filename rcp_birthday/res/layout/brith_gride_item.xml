@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/all_item_bg" >
+
+        <ImageView
+            android:id="@+id/brith_grid_item_img_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/grid_vip_mask" />
+
+        <ImageView
+            android:id="@+id/brith_grid_item_lunal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/brith_grid_item_img_bg"
+            android:src="@drawable/lunal_icon" />
+
+        <TextView
+            android:id="@+id/brith_grid_item_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/brith_grid_item_img_bg"
+            android:layout_toRightOf="@+id/brith_grid_item_lunal"
+            android:text="还有4天"
+            android:textColor="#9f000000"
+            android:textSize="12dip" />
+    </RelativeLayout>
+
+</LinearLayout>
