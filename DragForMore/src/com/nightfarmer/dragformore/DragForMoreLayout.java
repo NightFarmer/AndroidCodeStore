@@ -133,7 +133,12 @@ public class DragForMoreLayout extends FrameLayout{
                 diffY=currentY-initY;
                 //到顶部，并且是向下拉
                 if(((Dragable) dragableView).canDragDown() && diffY>0) {
-                    dragHelper.processTouchEvent(event);
+                    try {
+						dragHelper.processTouchEvent(event);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
                     //发送cancel事件，防止listview响应之前的事件，出现点击操作。
                     event.setAction(MotionEvent.ACTION_CANCEL);
                     super.dispatchTouchEvent(event);
