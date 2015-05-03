@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:layout_marginBottom="15dp"
+    android:background="@drawable/button2"
+    android:clickable="true" >
+
+    <ImageView 
+        android:id="@+id/button_with_icon_icon"
+        android:layout_height="match_parent"
+        android:layout_width="55dp"
+        android:paddingLeft="13dp"
+        android:paddingRight="15dp"
+        android:scaleType="fitCenter"/>
+    
+    <TextView
+        android:id="@+id/button_with_icon_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:textSize="18sp"
+        android:textColor="#4D4D4D"
+        android:text="公告通知" 
+        android:layout_toRightOf="@id/button_with_icon_icon"/>
+
+    <ImageView 
+        android:layout_height="match_parent"
+        android:layout_width="44dp"
+        android:paddingLeft="18dp"
+        android:paddingRight="16dp"
+        android:src="@drawable/tip"
+        android:layout_alignParentRight="true"
+        />
+</RelativeLayout>

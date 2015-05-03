@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+	<FrameLayout 
+	    android:id="@+id/layout_mainframe"
+	    android:layout_weight="1.0" 
+	    android:layout_width="match_parent"
+	    android:layout_height="0dp"
+	    />
+	<com.nightfarmer.eip_x.widget.FlowRadioGroup 
+	    android:id="@+id/radioGroup_main"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    android:gravity="center_vertical"
+	    android:background="@drawable/radiogroup_bg"
+	    >
+	    
+	    <RadioButton
+	        android:id="@+id/radiobt_main_a"
+	        android:text="首页"
+	        android:drawableTop="@drawable/radiobt_shouye"
+	        style="@style/radioBT_main"/>
+
+	    <FrameLayout 
+	        android:layout_weight="1.0"
+	        android:layout_height="wrap_content"
+	        android:layout_width="0dp">
+	        
+	        <RadioButton 
+	            android:id="@+id/radiobt_main_b"
+	            android:text="工作台"
+	            android:drawableTop="@drawable/radiobt_gengduo"
+	            style="@style/radioBT_main"
+	            android:layout_width="match_parent"/>
+	    </FrameLayout>
+	    
+	    <RadioButton
+	        android:id="@+id/radiobt_main_c"
+	        android:text="通讯录"
+	        android:drawableTop="@drawable/radiobt_tongxunlu"
+	        style="@style/radioBT_main"/>
+
+	    <RadioButton
+	        android:id="@+id/radiobt_main_d"
+	        android:text="更多"
+	        android:drawableTop="@drawable/radiobt_gengduo"
+	        style="@style/radioBT_main"/>
+
+	</com.nightfarmer.eip_x.widget.FlowRadioGroup>
+</LinearLayout>
