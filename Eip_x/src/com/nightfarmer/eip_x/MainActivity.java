@@ -1,6 +1,9 @@
 package com.nightfarmer.eip_x;
 
+import com.nightfarmer.eip_x.activity.ActivityLogin;
+
 import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,7 +13,10 @@ public class MainActivity extends ActionBarActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+//		setContentView(R.layout.activity_main);
+		Intent intent = new Intent(this, ActivityLogin.class);
+		startActivity(intent);
+		finish();
 	}
 
 	@Override

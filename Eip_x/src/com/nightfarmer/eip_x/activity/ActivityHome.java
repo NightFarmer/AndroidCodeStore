@@ -1,8 +1,12 @@
-package com.nightfarmer.eip_x;
+package com.nightfarmer.eip_x.activity;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import com.nightfarmer.eip_x.MainRadioGroupCheckedChangeListener;
+import com.nightfarmer.eip_x.R;
+import com.nightfarmer.eip_x.R.id;
+import com.nightfarmer.eip_x.R.layout;
 import com.nightfarmer.eip_x.fragment.FragmentGZT;
 import com.nightfarmer.eip_x.fragment.FragmentMore;
 import com.nightfarmer.eip_x.fragment.FragmentTXL;

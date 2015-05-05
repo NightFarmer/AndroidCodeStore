@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.nightfarmer.eip_x.ActivityHome"
+            android:name="com.nightfarmer.eip_x.MainActivity"
             android:label="@string/app_name" 
             android:screenOrientation="portrait" >
             <intent-filter>
@@ -23,6 +23,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.nightfarmer.eip_x.activity.ActivityLogin"/>
+        <activity android:name="com.nightfarmer.eip_x.activity.ActivityHome"/>
     </application>
 
 </manifest>

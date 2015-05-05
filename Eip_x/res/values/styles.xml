@@ -28,6 +28,11 @@
         <item name="android:scrollbarThumbVertical">@color/titleBarBg</item>
         <item name="android:scrollbarTrackHorizontal">@null</item>
         <item name="android:scrollbarTrackVertical">@null</item> -->
+        
+        <!-- <item name="android:activityOpenEnterAnimation">@anim/slide_left_in</item>
+	    <item name="android:activityOpenExitAnimation">@anim/slide_right_in</item>
+	    <item name="android:activityCloseEnterAnimation">@anim/slide_left_out</item>
+	    <item name="android:activityCloseExitAnimation">@anim/slide_right_out</item> -->
     </style>
     
     
