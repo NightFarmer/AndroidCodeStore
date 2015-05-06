@@ -6,7 +6,7 @@ import com.nightfarmer.eip_x.base.FragmentWithTitle;
 public class FragmentMore extends FragmentWithTitle{
 
 	public FragmentMore() {
-		super(R.layout.layout_gzt, "更多");
+		super(R.layout.layout_txl, "更多");
 	}
 
 	

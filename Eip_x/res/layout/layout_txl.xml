@@ -60,11 +60,18 @@
 	    </RadioGroup>
 	</LinearLayout>
 	
-	<FrameLayout 
-	    android:id="@+id/txl_main"
-	    android:layout_width="match_parent"
-	    android:layout_height="0dp"
-	    android:layout_weight="1">
-	    
-	</FrameLayout>
+	<FrameLayout
+        android:id="@+id/txl_main"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+        <ListView
+            android:id="@+id/txl_listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+             />
+        <!-- android:divider="@null" -->
+    </FrameLayout>
+
 </LinearLayout>

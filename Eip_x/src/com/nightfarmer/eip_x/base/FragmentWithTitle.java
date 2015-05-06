@@ -1,8 +1,6 @@
 package com.nightfarmer.eip_x.base;
 
-import com.nightfarmer.eip_x.R;
-import com.nightfarmer.eip_x.utils.TitleBar;
-
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,6 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.LinearLayout;
+
+import com.nightfarmer.eip_x.R;
+import com.nightfarmer.eip_x.utils.TitleBar;
 
 public class FragmentWithTitle extends Fragment{
 	private int bodyLayoutId;
@@ -49,5 +50,13 @@ public class FragmentWithTitle extends Fragment{
 	
 	protected void initMainBodyContent(View layoutMainbodyContent) {
 		
+	}
+	
+	protected View findViewById(int id) {
+		return layoutMainbodyContent.findViewById(id);
+	}
+	
+	protected Context getContext() {
+		return layoutMainbodyContent.getContext();
 	}
 }
