@@ -25,6 +25,7 @@
         </activity>
         <activity android:name="com.nightfarmer.eip_x.activity.ActivityLogin"/>
         <activity android:name="com.nightfarmer.eip_x.activity.ActivityHome"/>
+        <activity android:name="com.nightfarmer.eip_x.activity.ActivityRegister"/>
     </application>
 
 </manifest>
