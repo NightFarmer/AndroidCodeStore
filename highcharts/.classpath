@@ -5,8 +5,5 @@
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
-	<classpathentry exported="true" kind="lib" path="thr/ormlite-core-4.49-SNAPSHOT.jar" sourcepath="thr/ormlite-core-4.49-SNAPSHOT-sources.jar"/>
-	<classpathentry exported="true" kind="lib" path="thr/ormlite-android-4.49-SNAPSHOT.jar" sourcepath="thr/ormlite-android-4.49-SNAPSHOT-sources.jar"/>
-	<classpathentry exported="true" kind="lib" path="libs/gson-2.2.4.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
