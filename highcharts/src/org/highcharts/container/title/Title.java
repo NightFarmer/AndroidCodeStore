@@ -5,13 +5,13 @@ import org.highcharts.container.Align;
 public class Title {
 	private String align;
 	private boolean floating;
-	private int margin;
+	private int margin = 15;
 	private String style;
 	private String text;
 	private boolean useHTML;
 	private String verticalAlign;
 	private int x;
-	private int y;
+	private int y = 13;
 	
 	
 	public int getX() {
@@ -22,13 +22,13 @@ public class Title {
 		this.x = x;
 	}
 
-	public int getY() {
-		return y;
-	}
-
-	public void setY(int y) {
-		this.y = y;
-	}
+//	public int getY() {
+//		return y;
+//	}
+//
+//	public void setY(int y) {
+//		this.y = y;
+//	}
 
 	public int getMargin() {
 		return margin;
@@ -37,15 +37,15 @@ public class Title {
 	public void setMargin(int margin) {
 		this.margin = margin;
 	}
-
-	public boolean isFloating() {
-		return floating;
-	}
-
-	public void setFloating(boolean floating) {
-		this.floating = floating;
-	}
-
+//
+//	public boolean isFloating() {
+//		return floating;
+//	}
+//
+//	public void setFloating(boolean floating) {
+//		this.floating = floating;
+//	}
+//
 	public Align getAlign() {
 		Align[] values = Align.values();
 		for (Align hc_Align : values) {
@@ -73,16 +73,16 @@ public class Title {
 	public void setVerticalAlign(Align verticalAlign) {
 		this.verticalAlign = verticalAlign.getStr();
 	}
-
-
-	public String getStyle() {
-		return style;
-	}
-
-	public void setStyle(String style) {
-		this.style = style;
-	}
-
+//
+//
+//	public String getStyle() {
+//		return style;
+//	}
+//
+//	public void setStyle(String style) {
+//		this.style = style;
+//	}
+//
 	public String getText() {
 		return text;
 	}
