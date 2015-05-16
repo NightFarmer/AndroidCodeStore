@@ -1,4 +1,4 @@
-package weather;
+package com.nightfarmer.nfweather;
 
 public class WeatherBean {
 	public Weatherinfo weatherinfo;
@@ -11,4 +11,8 @@ public class WeatherBean {
 		this.weatherinfo = weatherinfo;
 	}
 	
+	@Override
+	public String toString() {
+		return "天气信息：\n"+weatherinfo;
+	}
 }

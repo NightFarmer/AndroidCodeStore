@@ -1,4 +1,4 @@
-package weather;
+package com.nightfarmer.nfweather;
 
 public class Weatherinfo {
 	private String city;
@@ -831,4 +831,31 @@ public class Weatherinfo {
 		this.index_ag = index_ag;
 	}
 
+	@Override
+	public String toString() {
+		StringBuffer sb = new StringBuffer();
+		sb.append("城市：").append(city).append("\n");
+		sb.append("当天：").append(temp1).append("，").append(weather1).append("，").append(wind1).append("\n");
+		sb.append(index_d).append("\n");
+		sb.append("紫外线指数：").append(index_uv).append("\n");
+		sb.append("洗车指数：").append(index_xc).append("\n");
+		sb.append("旅游指数：").append(index_tr).append("\n");
+		sb.append("舒适指数：").append(index_co).append("\n");
+		sb.append("晨练指数：").append(index_cl).append("\n");
+		sb.append("晾晒指数：").append(index_ls).append("\n");
+		sb.append("过敏指数：").append(index_ag).append("\n");
+		
+		sb.append("风向：").append(fx1).append("\n");
+		sb.append("风力：").append(fl1).append("\n");
+		sb.append("更新时间：").append(fchh).append("\n");
+		
+		sb.append("第二天：").append(temp2).append("，").append(weather2).append("，").append(wind2).append("\n");
+		sb.append("第三天：").append(temp3).append("，").append(weather3).append("，").append(wind3).append("\n");
+		sb.append("第四天：").append(temp4).append("，").append(weather4).append("，").append(wind4).append("\n");
+		sb.append("第五天：").append(temp5).append("，").append(weather5).append("，").append(wind5).append("\n");
+		sb.append("第六天：").append(temp6).append("，").append(weather6).append("，").append(wind6).append("\n");
+		
+		
+		return sb.toString();
+	}
 }

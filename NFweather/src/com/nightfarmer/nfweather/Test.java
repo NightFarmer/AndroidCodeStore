@@ -1,4 +1,4 @@
-package weather;
+package com.nightfarmer.nfweather;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;

@@ -1,3 +1,4 @@
+package com.nightfarmer.nfweather.jsonbean;
 
 
 public class Country {
