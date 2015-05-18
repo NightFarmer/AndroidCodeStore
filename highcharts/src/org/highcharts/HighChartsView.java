@@ -14,6 +14,8 @@ import org.highcharts.container.series.Series;
 import org.highcharts.container.title.SubTitle;
 import org.highcharts.container.title.Title;
 import org.highcharts.container.tooltip.Tooltip;
+import org.highcharts.intf.HighChartsJSInterface;
+import org.highcharts.intf.HighChartsProviderInterface;
 
 import android.content.Context;
 import android.os.Handler;
@@ -78,7 +80,7 @@ public class HighChartsView extends FrameLayout{
 	}
 
 	
-	public void setProvider(HighChartsProvider provider){
+	public void setProvider(HighChartsProviderInterface provider){
 		if (this.container == null) {
 			this.container = new HC_Container();
 		}

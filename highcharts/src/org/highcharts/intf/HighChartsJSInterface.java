@@ -1,4 +1,4 @@
-package org.highcharts;
+package org.highcharts.intf;
 
 import org.highcharts.container.HC_Container;
 
@@ -21,8 +21,6 @@ public class HighChartsJSInterface {
 	public String getContainerData(){
 		Gson gson = new Gson();
 		String json = gson.toJson(container);
-		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxx");
-		System.out.println(json);
 		return json;
 	}
 }

@@ -1,84 +1,20 @@
 package org.highcharts.demo;
 
-import org.highcharts.HighChartsProvider;
 import org.highcharts.container.Align;
 import org.highcharts.container.axis.AxisTitle;
-import org.highcharts.container.axis.PlotLine;
 import org.highcharts.container.axis.XAxis;
 import org.highcharts.container.axis.YAxis;
 import org.highcharts.container.chart.Chart;
 import org.highcharts.container.legend.Legend;
 import org.highcharts.container.legend.Legend.Layout;
-import org.highcharts.container.plotOptions.Column;
 import org.highcharts.container.plotOptions.Line;
 import org.highcharts.container.series.Series;
 import org.highcharts.container.title.SubTitle;
 import org.highcharts.container.title.Title;
 import org.highcharts.container.tooltip.Tooltip;
+import org.highcharts.intf.HighChartsProviderInterface;
 
-public class MyProvider implements HighChartsProvider{
-
-	@Override
-	public Chart getChart() {
-		Chart chart = new Chart();
-		chart.setType(new Line().simple());
-		return chart;
-	}
-
-	@Override
-	public Title getTitle() {
-		Title title = new Title();
-		title.setText("大标题");
-		title.setX(-20);
-		return title;
-	}
-
-	@Override
-	public SubTitle getSubTitle() {
-		SubTitle subTitle = new SubTitle();
-		subTitle.setText("副标题");
-		subTitle.setX(-20);
-		return subTitle;
-	}
-
-	@Override
-	public XAxis getXAxis() {
-		XAxis xAxis = new XAxis();
-		xAxis.setCategories(new String[]{"Jan", "Feb", "Mar", "Apr", "May", "Jun",
-                "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"});
-		return xAxis;
-	}
-
-	@Override
-	public YAxis getYAxis() {
-		YAxis yAxis = new YAxis();
-		AxisTitle axisTitle = new AxisTitle();
-		axisTitle.setText("Temperature (°C)");
-		yAxis.setTitle(axisTitle);
-		PlotLine plotLine = new PlotLine();
-		plotLine.setValue(0);
-		plotLine.setWidth(1);
-		plotLine.setColor("#808080");
-		yAxis.setPlotLines(new PlotLine[]{plotLine});
-		return yAxis;
-	}
-
-	@Override
-	public Tooltip getTooltip() {
-		Tooltip tooltip = new Tooltip();
-		tooltip.setValueSuffix("°C");
-		return tooltip;
-	}
-
-	@Override
-	public Legend getLegend() {
-		Legend legend = new Legend();
-		legend.setLayout(Layout.Vertical);
-		legend.setAlign(Align.Right);
-		legend.setVerticalAlign(Align.Middle);
-		legend.setBorderWidth(0);
-		return legend;
-	}
+public class MyProvider implements HighChartsProviderInterface{
 
 	@Override
 	public Series[] getSeries() {
@@ -97,4 +33,62 @@ public class MyProvider implements HighChartsProvider{
 		return new Series[]{series1, series2, series3, series4};
 	}
 
+	@Override
+	public Chart getChart() {
+		Chart chart = new Chart();
+		chart.setType(new Line().simple());
+		return chart;
+	}
+
+	@Override
+	public Title getTitle() {
+		Title title = new Title();
+		title.setText("大标题");
+		return title;
+	}
+
+	@Override
+	public SubTitle getSubTitle() {
+		SubTitle subTitle = new SubTitle();
+		subTitle.setText("副标题");
+		return subTitle;
+	}
+
+	@Override
+	public XAxis getXAxis() {
+		XAxis xAxis = new XAxis();
+		xAxis.setCategories(new String[]{"Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"});
+		return xAxis;
+	}
+
+	@Override
+	public YAxis getYAxis() {
+		YAxis yAxis = new YAxis();
+		AxisTitle title = new AxisTitle();
+		title.setText("Y轴描述");
+		yAxis.setTitle(title);
+		return yAxis;
+	}
+
+	@Override
+	public Tooltip getTooltip() {
+		Tooltip tooltip = new Tooltip();
+		tooltip.setValueSuffix("好像是单位");
+		return tooltip;
+	}
+
+	@Override
+	public Legend getLegend() {
+		Legend legend = new Legend();
+		legend.setLayout(Layout.Vertical);
+		legend.setAlign(Align.Center);
+		legend.setVerticalAlign(Align.Bottom);
+		legend.setBorderWidth(2);
+		return legend;
+	}
+
+
+
+	
 }

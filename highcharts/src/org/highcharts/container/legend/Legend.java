@@ -14,6 +14,9 @@ public class Legend {
 		return borderWidth;
 	}
 
+	/**
+	 * @param borderWidth 图例边框宽度
+	 */
 	public void setBorderWidth(int borderWidth) {
 		this.borderWidth = borderWidth;
 	}
@@ -28,6 +31,9 @@ public class Legend {
 		return null;
 	}
 
+	/**
+	 * @param layout 设置图例的排列方式
+	 */
 	public void setLayout(Layout layout) {
 		this.layout = layout.str;
 	}
@@ -42,6 +48,9 @@ public class Legend {
 		return null;
 	}
 
+	/**
+	 * @param align 设置图例的水平位置
+	 */
 	public void setAlign(Align align) {
 		this.align = align.getStr();
 	}
@@ -56,6 +65,9 @@ public class Legend {
 		return null;
 	}
 
+	/**
+	 * @param verticalAlign 图例垂直位置
+	 */
 	public void setVerticalAlign(Align verticalAlign) {
 		this.verticalAlign = verticalAlign.getStr();
 	}
